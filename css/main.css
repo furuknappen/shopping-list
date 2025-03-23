@@ -16,4 +16,4 @@ main{
   --headerHeight: 8vh;
   --monitorTop: 1.53;
 }
-/* var(--headerHeight) */
+var(--headerHeight)
