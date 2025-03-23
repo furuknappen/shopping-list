@@ -3,7 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 
-  
+}
+
+body {
+
+  font-size: 16px;
+  font-family:"Poppins";
+  font-weight:500;
+  width: 100vw;
 }
 
 main{
@@ -11,9 +18,3 @@ main{
   width: 100%;
   
 }
-
-:root {
-  --headerHeight: 8vh;
-  --monitorTop: 1.53;
-}
-var(--headerHeight)
