@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  
+}
+
+main{
+  height: 5000px;
+  width: 100%;
+  
+}
+
+:root {
+  --headerHeight: 8vh;
+  --monitorTop: 1.53;
+}
+var(--headerHeight)
