@@ -18,3 +18,81 @@ main{
   width: 100%;
   
 }
+
+#checklistDiv{
+  width: 100%;
+  height: auto;
+  /* display: flex;
+  justify-content: space-evenly;
+  align-items: center;     */
+  background-color: rgb(145, 189, 145);
+  padding: 0.5em;
+
+  position:relative;
+  width: 100%;
+  height:auto;
+}
+
+
+.checklistul{
+  background-color: rgb(124, 113, 77);
+  padding: 0px;
+  margin: 0px 20px 0px 20px;
+}
+
+
+.checklistItem {
+  background-color: var(--lightGreenColor);
+  display: flex;
+  justify-content: right;
+  align-items: center; 
+
+}
+#itemName {
+  flex: 1; 
+  padding-left:2%
+}
+
+#itemAmount{
+  width: auto;
+  padding-right: 2%
+}
+
+
+:root{
+  --darkGreenColor: forestgreen;
+}
+
+/* CHECKBOX*/
+.checkbox[type="checkbox"]{
+  margin:2%;
+  appearance:none;
+  width: 1.9em;
+  height: 1.9em;  
+  border: 0.15em solid var(--darkGreenColor);
+  border-radius: 0.2em;
+  font: inherit;
+  padding:1px 1px 1px 0px;
+  display: grid;
+  place-content: center;
+  
+}
+
+
+.checkbox[type="checkbox"]::before {
+  content: "";
+  width: 0.45em;
+  height: 0.45em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  transform-origin: bottom left;
+  box-shadow: inset 1em 1em var(--darkGreenColor);
+  padding: 5px 5px 5px 5px;
+  background-color: var(--darkGreenColor); 
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+
+}  
+
+.checkbox[type="checkbox"]:checked::before {
+  transform: scale(1);
+}

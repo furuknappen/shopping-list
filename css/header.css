@@ -5,19 +5,20 @@
   height:auto;
   display: flex;
   justify-content:space-between;
-  align-content:center;
-  width: 100vw;
+  align-content:baseline;
+  width: 100%;
 }
 
 #headerText{
  color: #f1f1f1;
  font-size: 8vw;
- margin: 0em 0em 0em 0em;
+ /* margin: 0.2em 1em 0em 0em; */
  padding: 0.2em 1em 0.2em 1em;
  flex:5;
  text-align: center;
  font-weight: 500;
 }
+
 #hamburgerBtnDiv{
   flex: 1;
   text-align: end;
@@ -42,15 +43,7 @@
   margin: 5px;
 }
 
-/* Tablets and large phones - Portrait */
-/* @media (min-width: 480px) and (max-width: 768px) {
-  body {
-      
-      /* background-color: red; */
-  /* }
 
-
-} */ 
 
 
 /* iPads (tablets) - Landscape */
@@ -69,10 +62,6 @@
    }
 }
 
-
-
-
-
   /*........ Desktops ............*/
 @media (min-width: 1025px) {
   body {
@@ -83,8 +72,14 @@
   #headerText{
     font-size:1.7vw;
   }
-
+  #hamburgerBtnDiv{
+    flex: 1;
+    text-align: end;
+    margin-right: 3%;
+    margin-top: 0.2em;
+  }
   #hamburgerSvg{
     width: 2vw;
   }
+
 } 
