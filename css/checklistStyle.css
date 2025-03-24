@@ -1,0 +1,112 @@
+
+
+#checklistDiv{
+  width: 100%;
+  height: auto;
+  background-color: rgb(140, 207, 140);
+  padding: 0.5em;
+  position:relative;
+  border-radius: 4px; 
+}
+
+
+/* .checklistul{
+  padding: 0px;
+  margin: 0px 20px 0px 20px;
+ 
+} */ /* nødvendig?*/
+
+
+.checklistItem {
+  
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  border-bottom: 2px;
+  border-bottom-style: solid; 
+  border-color: rgb(138, 137, 137);
+  font-size: 1.2em;
+}
+
+#itemName {
+  flex: 1; 
+  padding-left:2%
+}
+
+#itemAmount{
+  width: auto;
+  padding-right: 2%
+}
+
+
+
+/* CHECKBOX START*/
+.checkbox[type="checkbox"]{
+  margin:2%;
+  appearance:none;
+  width: 1.9em;
+  height: 1.9em;  
+  border: 0.15em solid var(--darkGreenColor);
+  border-radius: 0.2em;
+  font: inherit;
+  padding:1px 1px 1px 0px;
+  display: grid;
+  place-content: center;
+  
+}
+
+
+.checkbox[type="checkbox"]::before {
+  content: "";
+  width: 0.45em;
+  height: 0.45em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  transform-origin: bottom left;
+  box-shadow: inset 1em 1em var(--darkGreenColor);
+  padding: 5px 5px 5px 5px;
+  background-color: var(--darkGreenColor); 
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}  
+
+.checkbox[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+/* CHECKBOX STOP*/
+
+
+
+
+
+:root{
+  --darkGreenColor: forestgreen;
+}
+
+
+/* iPads (tablets) - Landscape */
+@media (min-width: 769px) and (max-width: 1024px) {
+  
+#checklistDiv{
+  margin-top: 8px;
+  position:relative;
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-color: rgb(10, 109, 10)
+}
+}
+  
+  
+/*........ Desktops ............*/
+@media (min-width: 1025px) {
+  #checklistDiv{
+    margin-top: 8px;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-color: rgb(10, 109, 10)
+  }
+}
