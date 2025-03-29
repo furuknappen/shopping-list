@@ -1,22 +1,16 @@
-
-
 #searchbar {
-  position:relative;
- background-color: rgb(239, 250, 239);
+  position: relative;
+  background-color: rgb(239, 250, 239);
   padding: 0.9em;
   border: 3px solid rgb(50, 97, 50);
   border-radius: 5px;
   margin-inline: 50rem;
- font-family: Verdana, Geneva, Tahoma, sans-serif;
- font-size: medium;
-
-
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: medium;
 }
 
-  #searchbar:focus{
-    border-style: solid;
-    border-color: var(--darkGreenColor);
-    outline: none; 
-   
-  
-  }
+#searchbar:focus {
+  border-style: solid;
+  border-color: var(--darkGreenColor);
+  outline: none;
+}

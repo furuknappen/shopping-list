@@ -1,26 +1,24 @@
-import db from "./db.js";
+import db from "./db.js"
 
-console.log("start");
+console.log("start")
 
-let hamburgerMenu = document.getElementById("hamburgerMenu")
+const hamburgerMenu = document.getElementById("hamburgerMenu")
 hamburgerMenu.style.display = "none"
-window.openMenu = openMenu;
+window.openMenu = openMenu
 function openMenu() {
-  if(hamburgerMenu.style.display === "none"){
-    hamburgerMenu.style.display = "grid";
-  }
-  else { 
-    hamburgerMenu.style.display = "none";
+  if (hamburgerMenu.style.display === "none") {
+    hamburgerMenu.style.display = "grid"
+  } else {
+    hamburgerMenu.style.display = "none"
   }
 }
 
-
-async function rerenderList (){
-  const items = await db.listItems();
+async function rerenderList() {
+  const items = await db.listItems()
 
   const ul = document.getElementById("uncheckedItemsShoppingmode")
 
-  items.forEach((item,index) => {
+  items.forEach((item, index) => {
     const li = document.createElement("li")
     li.className = "checklistItem"
     li.id = index
@@ -34,9 +32,9 @@ async function rerenderList (){
   <input class="checkbox" type="checkbox" name="checkbox" id="${index}">`
 
     ul.appendChild(li)
-  });
+  })
 }
 
-await rerenderList();
+await rerenderList()
 
-console.log("end");
+console.log("end")
