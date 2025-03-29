@@ -1,16 +1,28 @@
-import secrets from "./secrets.js";
+import PocketBase, { LocalAuthStore } from "../lib/pocketbase.es.mjs"
 
-const pb = new PocketBase("https://db.shopping-list.furuknappen.no");
+const pb = new PocketBase("https://db.shopping-list.furuknappen.no", new LocalAuthStore());
 
 async function login(email, password) {
   console.log("Logging in...");
   try {
-    await pb.collection("users").authWithPassword(email, password);
+    const result = await pb.collection("users").authWithPassword(email, password);
     console.log("Logging in succeded");
+    return {
+      id: result.record.id,
+      name: result.record.name,
+      email: result.record.email,
+    };
   } catch (error) {
     console.error("Logging in failed with error: ", error);
   }
-  console.log("Is user logged in: ", pb.authStore.isValid);
+}
+
+async function getLoggedInUser(){
+  return {
+    id: pb.authStore.baseModel.id,
+    name: pb.authStore.baseModel.name,
+    email: pb.authStore.baseModel.email,
+  }
 }
 
 async function logout() {
@@ -61,11 +73,13 @@ async function uncheckItem(id) {
   }
 }
 
-await login(secrets.email,secrets.password);
+// Refresh the login session on page load
+await pb.collection("users").authRefresh();
 
 export default {
   login,
   logout,
+  getLoggedInUser,
   listItems,
   checkItem,
   uncheckItem,
