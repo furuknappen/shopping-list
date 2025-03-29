@@ -3,7 +3,7 @@ import PocketBase, { LocalAuthStore } from "../lib/pocketbase.es.mjs"
 const pb = new PocketBase("https://db.shopping-list.furuknappen.no", new LocalAuthStore());
 
 async function login(email, password) {
-  console.log("Logging in...");
+  console.log("Logging in...")
   try {
     const result = await pb.collection("users").authWithPassword(email, password);
     console.log("Logging in succeded");
@@ -13,7 +13,7 @@ async function login(email, password) {
       email: result.record.email,
     };
   } catch (error) {
-    console.error("Logging in failed with error: ", error);
+    console.error("Logging in failed with error: ", error)
   }
 }
 
@@ -26,50 +26,49 @@ async function getLoggedInUser(){
 }
 
 async function logout() {
-  console.log("Loggin out...");
-  await pb.authStore.clear();
-  console.log("Logged out");
+  console.log("Loggin out...")
+  await pb.authStore.clear()
+  console.log("Logged out")
 }
 
 async function listItems() {
-  console.log("Getting all items...");
+  console.log("Getting all items...")
   try {
-    const result = await pb.collection("items").getFullList();
-    console.log("Getting all items succeded");
+    const result = await pb.collection("items").getFullList()
+    console.log("Getting all items succeded")
 
-    return result
-      .map(item => ({
-        id: item.id,
-        name: item.Name,
-        checked: item.Checked,
-        amount: item.Amount
-      }));
+    return result.map((item, index) => ({
+      id: item.id,
+      name: item.Name,
+      checked: item.Checked,
+      amount: item.Amount,
+      updated: item.updated,
+      index: index,
+    }))
   } catch (error) {
-    console.error("Getting all items failed with error: ", error);
+    console.error("Getting all items failed with error: ", error)
   }
 }
 
 async function checkItem(id) {
-  console.log(`Checking item with id = "${id}" ...`);
+  console.log(`Checking item with id = "${id}" ...`)
 
   try {
-    await pb.collection("items")
-      .update(id, { Checked: true });
-    console.log(`Checking item with id = "${id}" succeded`);
+    await pb.collection("items").update(id, { Checked: true })
+    console.log(`Checking item with id = "${id}" succeded`)
   } catch (error) {
-    console.error(`Checking with id = "${id}" failed with error`, error);
+    console.error(`Checking with id = "${id}" failed with error`, error)
   }
 }
 
 async function uncheckItem(id) {
-  console.log(`Unchecking item with id = "${id}" ...`);
+  console.log(`Unchecking item with id = "${id}" ...`)
 
   try {
-    await pb.collection("items")
-      .update(id, { Checked: false });
-    console.log(`Unchecking item with id = "${id}" succeded`);
+    await pb.collection("items").update(id, { Checked: false })
+    console.log(`Unchecking item with id = "${id}" succeded`)
   } catch (error) {
-    console.error(`Unchecking with id = "${id}" failed with error`, error);
+    console.error(`Unchecking with id = "${id}" failed with error`, error)
   }
 }
 

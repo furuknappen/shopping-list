@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin-top: 17%;
+  font-size: 16px;
+  color: rgb(25, 26, 25);
+  /* font-family:"Poppins"; */
+  font-family: nunito;
+  font-weight: 500;
+  width: 100vw;
+  background-color: var(--mainBackgroundColor);
+}
+
+#loginDiv {
+  border: 2px solid rgb(50, 97, 50);
+  border-radius: 15px;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-inline: auto;
+  margin-top: 30%;
+  background-color: rgb(140, 207, 140);
+}
+
+h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 100;
+  padding-left: 6px;
+  font-size: large;
+}
+
+input {
+  padding: 10px;
+  margin: 0.5rem;
+  border: 2px solid rgb(50, 97, 50);
+  border-radius: 5px;
+}
+
+#submitLogin {
+  width: 50%;
+  background-color: rgb(79, 138, 79);
+  margin-inline: auto;
+  border: 2px solid rgb(50, 97, 50);
+  padding: 0.5em;
+  border-radius: 5px;
+  margin-top: 9%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 100;
+  font-size: large;
+}
+
+@media (min-width: 1025px) {
+  body {
+    font-size: 20px;
+    margin-top: 9%;
+  }
+
+  #loginDiv {
+    padding: 3em;
+    width: 20%;
+    margin-top: 0;
+  }
+
+  h1 {
+    padding-left: 4px;
+  }
+}

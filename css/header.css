@@ -1,85 +1,100 @@
-
-
-#headerDiv{
-  background-color: rgb(79, 138, 79);
-  height:auto;
+#headerDiv {
+  background-color: var(--headerColor);
   display: flex;
-  justify-content:space-between;
-  align-content:baseline;
+  justify-content: space-between;
+  align-content: center;
   width: 100%;
+  position: fixed;
+  z-index: 50;
+  top: 0;
 }
 
-#headerText{
- color: #f1f1f1;
- font-size: 8vw;
- /* margin: 0.2em 1em 0em 0em; */
- padding: 0.2em 1em 0.2em 1em;
- flex:5;
- text-align: center;
- font-weight: 500;
-}
-
-#hamburgerBtnDiv{
+#headerText {
+  color: #f1f1f1;
+  font-size: 2rem;
+  padding-inline: auto;
+  padding-block: 0.2rem;
   flex: 1;
-  text-align: end;
-  margin-right: 1%;
+  text-align: center;
+  font-weight: 500;
 }
 
+#hamburgerBtnDiv {
+  text-align: end;
+  display: flex;
+  align-items: center;
+}
 
-#hamburgerMenuBtn{
-  height: auto;
-  width:auto ; 
+#hamburgerMenuBtn {
+  /* height: 100%; */
+  width: auto;
   background-color: transparent;
   border: none;
-   border-radius: 3%;
+  /* border-radius: 3%; */
+  padding: 0.6em;
+  margin-top: 1;
 }
-
+#hamburgerMenuBtn:hover {
+  background-color: var(--headerDarkerColor);
+  cursor: pointer;
+}
 #hamburgerMenuBtn:active {
-  transform: translateY(2px); 
+  background-color: var(--headerDarkerColor);
 }
 
-#hamburgerSvg{
-  width: 12vw;
-  margin: 5px;
+#hamburgerSvg {
+  width: 2.2em;
+  height: 100%;
 }
 
-
-
+#hamburgerSvg:active {
+  transform: translateY(2px);
+}
 
 /* iPads (tablets) - Landscape */
 @media (min-width: 769px) and (max-width: 1024px) {
-  
   body {
-      /* background-color: rgb(0, 128, 0); */
+    /* background-color: rgb(0, 128, 0); */
   }
 
-  #headerText{
-    font-size:4vw;
-   }
-
-  #hamburgerSvg{
-    width: 7vw;
-   }
+  #hamburgerSvg {
+    width: 2.4em;
+  }
 }
 
-  /*........ Desktops ............*/
+/*........ Desktops ............*/
 @media (min-width: 1025px) {
   body {
-      font-size: 20px;
-      /* background-color: rgb(224, 224, 136); */
+    /* background-color: rgb(224, 224, 136); */
   }
 
-  #headerText{
-    font-size:1.7vw;
-  }
-  #hamburgerBtnDiv{
-    flex: 1;
-    text-align: end;
+  #hamburgerBtnDiv {
     margin-right: 3%;
-    margin-top: 0.2em;
-  }
-  #hamburgerSvg{
-    width: 2vw;
   }
 
-} 
+  #hamburgerSvg {
+    width: 2.4em;
+  }
+}
+
+/* hamburger menu */
+#hamburgerMenu {
+  border: 2px solid var(--borderColor);
+  position: absolute;
+  right: 0;
+  top: 100%;
+  display: none; /* denne må endres til none når jeg beynner med js*/
+  background-color: var(--backgroundColor);
+  border-radius: 3px;
+}
+
+#hamburgerMenu :hover {
+  background: var(--backgroundDarkerColor);
+}
+
+a {
+  text-decoration: none;
+  color: var(--fontColor);
+  padding: 8px;
+  padding-right: 200px;
+}

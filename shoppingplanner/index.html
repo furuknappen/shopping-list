@@ -23,21 +23,20 @@
     href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
 
-  <!-- Database -->
-  <script type="module" src="js\secrets.js"></script>
-  <script type="module" src="js\db.js"></script>
-  <link rel="stylesheet" href="css\roots.css">
-  <link rel="stylesheet" href="\css\main.css">
-  <link rel="stylesheet" href="css\header.css">
-  <link rel="stylesheet" href="css\checklistStyle.css">
+  <link rel="stylesheet" href="../css\roots.css">
+  <link rel="stylesheet" href="..\css\main.css">
+  <link rel="stylesheet" href="../css\header.css">
+  <link rel="stylesheet" href="../css\checklistStyle.css">
+  <link rel="stylesheet" href="./planner.css">
 
   <link rel="manifest" href="manifest.json">
 
 </head>
+<!-- plannerpage -->
 
 <body>
   <header id="headerDiv">
-    <h1 id="headerText"> Shoppingmode </h1>
+    <h1 id="headerText"> Planningmode </h1>
     <div id="hamburgerBtnDiv">
       <button id="hamburgerMenuBtn" onclick="openMenu()">
         <img id="hamburgerSvg" src="../svg-img/menu-2.svg" alt="_alternate text_"></button>
@@ -51,6 +50,7 @@
   </header>
 
   <main>
+    <input id="searchbar" type="text" placeholder="Search..">
     <div id="checklistDiv">
       <ul id="uncheckedItemsShoppingmode">
 

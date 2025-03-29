@@ -1,0 +1,12 @@
+:root {
+  --headerColor: rgb(79, 138, 79);
+  --headerDarkerColor: rgb(63, 110, 63);
+ 
+  --borderColor: rgb(10, 109, 10);
+  --dividerColor: rgb(137, 138, 137);
+  --fontColor: rgb(25, 26, 25);
+
+  --mainBackgroundColor: rgb(207, 252, 207);
+  --backgroundColor: rgb(140, 207, 140);
+  --backgroundDarkerColor:  rgb(125, 179, 125);
+}
