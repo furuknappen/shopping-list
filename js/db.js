@@ -24,13 +24,15 @@ async function listItems() {
   try {
     const result = await pb.collection("items").getFullList();
     console.log("Getting all items succeded");
-
+    
     return result
-      .map(item => ({
+      .map((item, index) => ({
         id: item.id,
         name: item.Name,
         checked: item.Checked,
-        amount: item.Amount
+        amount: item.Amount,
+        updated: item.updated,
+        index: index,
       }));
   } catch (error) {
     console.error("Getting all items failed with error: ", error);

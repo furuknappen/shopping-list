@@ -6,15 +6,12 @@
 }
 
 body {
+  margin-top: 7%;
   font-size: 16px;
+  color: rgb(25, 26, 25);
   /* font-family:"Poppins"; */
   font-family: nunito;
   font-weight:500;
   width: 100vw;
-  background-color: rgb(207, 252, 207);
-}
-
-main{
-  height: 5000px;
-  width: 100%;
+  background-color: var(--mainBackgroundColor);
 }

@@ -10,12 +10,6 @@
 }
 
 
-/* .checklistul{
-  padding: 0px;
-  margin: 0px 20px 0px 20px;
- 
-} */ /* nødvendig?*/
-
 
 .checklistItem {
   
@@ -24,7 +18,7 @@
   align-items: center;
   border-bottom: 2px;
   border-bottom-style: solid; 
-  border-color: rgb(138, 137, 137);
+  border-color: var(--dividerColor);
   font-size: 1.2em;
 }
 
@@ -46,7 +40,7 @@
   appearance:none;
   width: 1.9em;
   height: 1.9em;  
-  border: 0.15em solid var(--darkGreenColor);
+  border: 0.15em solid var(--borderColor);
   border-radius: 0.2em;
   font: inherit;
   padding:1px 1px 1px 0px;
@@ -63,9 +57,9 @@
   transform: scale(0);
   transition: 120ms transform ease-in-out;
   transform-origin: bottom left;
-  box-shadow: inset 1em 1em var(--darkGreenColor);
+  box-shadow: inset 1em 1em var(--borderColor);
   padding: 5px 5px 5px 5px;
-  background-color: var(--darkGreenColor); 
+  background-color: var(--borderColor); 
   clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }  
 
@@ -80,7 +74,7 @@
 
 
 :root{
-  --darkGreenColor: forestgreen;
+  --darkGreenColor: rgb(27, 114, 27);
 }
 
 
@@ -94,7 +88,7 @@
   margin-left: auto;
   margin-right: auto;
   border-style: solid;
-  border-color: rgb(10, 109, 10)
+  border-color: var(--borderColor)
 }
 }
   
@@ -107,6 +101,6 @@
     margin-left: auto;
     margin-right: auto;
     border-style: solid;
-    border-color: rgb(10, 109, 10)
+    border-color: var(--borderColor);
   }
 }
