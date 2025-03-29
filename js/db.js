@@ -74,7 +74,12 @@ async function uncheckItem(id) {
 }
 
 // Refresh the login session on page load
-await pb.collection("users").authRefresh();
+try {
+  await pb.collection("users").authRefresh();
+  console.log("Refreshed login")
+} catch (error) {
+  console.log("Failed to refresh login")
+}
 
 export default {
   login,
