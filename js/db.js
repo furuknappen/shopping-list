@@ -14,6 +14,7 @@ async function login(email, password) {
     };
   } catch (error) {
     console.error("Logging in failed with error: ", error)
+    throw error
   }
 }
 
