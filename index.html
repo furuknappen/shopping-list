@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Shopping List </title>
+  <title>Shopping List | Planner</title>
   <meta name="description" content="Personal shopping list app for our home">
   <meta name="author" content="Camilla Furuknappen Larsen">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -23,34 +23,33 @@
     href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
 
-  <!-- Database -->
-  <script type="module" src="js\secrets.js"></script>
-  <script type="module" src="js\db.js"></script>
-  <link rel="stylesheet" href="css\roots.css">
-  <link rel="stylesheet" href="\css\main.css">
-  <link rel="stylesheet" href="css\header.css">
-  <link rel="stylesheet" href="css\checklistStyle.css">
+  <link rel="stylesheet" href="css/roots.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/checklistStyle.css">
+  <link rel="stylesheet" href="css/planner.css">
 
   <link rel="manifest" href="manifest.json">
 
 </head>
-
+<!-- plannerpage -->
 <body>
   <header id="headerDiv">
-    <h1 id="headerText"> Shoppingmode </h1>
+    <h1 id="headerText"> Planningmode </h1>
     <div id="hamburgerBtnDiv">
       <button id="hamburgerMenuBtn" onclick="openMenu()">
         <img id="hamburgerSvg" src="../svg-img/menu-2.svg" alt="_alternate text_"></button>
       </button>
     </div>
     <div id="hamburgerMenu">
-      <a href="/login">Log in</a>
+      <a href="">Log in</a>
       <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+      <a href="/login">Link 3</a>
     </div>
   </header>
 
   <main>
+    <input id="searchbar" type="text" placeholder="Search..">
     <div id="checklistDiv">
       <ul id="uncheckedItemsShoppingmode">
 
@@ -62,14 +61,14 @@
   </main>
 
 
-  <script type="module" src="js\list.js"></script>
+ 
 
-  <!-- Database -->
-  <script src="/lib/pocketbase.umd.js"></script>
-  <script type="module" src="js\secrets.js"></script>
-  <script type="module" src="js\db.js"></script>
-
-  <script src="js\register-service-worker.js"></script>
+  <!-- js  --> 
+  <script src="js/header.js"></script>
+  <script src="js/register-service-worker.js"></script>
+  <script type="module" src="lib/pocketbase.es.mjs"></script>
+  <script type="module" src="js/db.js"></script>
+  <script type="module" src="js/planner.js"></script>
 </body>
 
 </html>

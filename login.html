@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shopping List | Login</title>
+  <meta name="description" content="Personal shopping list app for our home">
+  <meta name="author" content="Camilla Furuknappen Larsen">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+
+
+  <!-- nunito font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/roots.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/login.css">
+
+
+</head>
+
+
+<body>
+
+  <body>
+    <header id="headerDiv">
+      <h1 id="headerText"> Shoppingmode </h1>
+      <div id="hamburgerBtnDiv">
+        <button id="hamburgerMenuBtn" onclick="openMenu()">
+          <img id="hamburgerSvg" src="../svg-img/menu-2.svg" alt="_alternate text_"></button>
+        </button>
+      </div>
+    </header>
+
+
+    <form id="loginDiv" onsubmit="submitLogin(event)">
+      <h1>Sign in</h1>
+      <input type="text" id="email" placeholder="Email" name="email" required>
+      <input type="password" id="password" placeholder="Password" name="Password" required>
+      <button type="submit" id="submitLogin">Sign in</button>
+    </form>
+
+
+
+
+    <!-- js  -->
+    <script src="js/header.js"></script>
+    <script src="js/register-service-worker.js"></script>
+    <script type="module" src="lib/pocketbase.es.mjs"></script>
+    <script type="module" src="js/db.js"></script>
+    <script type="module" src="js/login.js"></script>
+
+  </body>
+
+
+</html>
