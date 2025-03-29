@@ -78,7 +78,7 @@ try {
   await pb.collection("users").authRefresh();
   console.log("Refreshed login")
 } catch (error) {
-  console.log("Feiled to refresh login")
+  console.log("Failed to refresh login")
 }
 
 export default {
