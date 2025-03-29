@@ -18,7 +18,7 @@ async function login(email, password) {
   }
 }
 
-async function getLoggedInUser(){
+function getLoggedInUser(){
   return {
     id: pb.authStore.baseModel.id,
     name: pb.authStore.baseModel.name,
