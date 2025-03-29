@@ -9,6 +9,7 @@ body {
   font-size: 16px;
   color: rgb(25, 26, 25);
   /* font-family:"Poppins"; */
+  /* biome-ignore lint/a11y/useGenericFontNames: <explanation> */
   font-family: nunito;
   font-weight: 500;
   width: 100vw;
