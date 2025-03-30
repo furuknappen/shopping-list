@@ -51,7 +51,7 @@ async function listItems() {
 async function listCategories() {
   try {
     const result = await pb.collection("categories").getFullList({
-      fields: "id,name,order",
+      fields: "id,name,order,color",
       expand: "",
       filter: "",
       sort: "order",
