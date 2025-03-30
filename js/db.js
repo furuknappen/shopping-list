@@ -1,24 +1,24 @@
 import PocketBase, { LocalAuthStore } from "../lib/pocketbase.es.mjs"
 
-const pb = new PocketBase("https://db.shopping-list.furuknappen.no", new LocalAuthStore());
+const pb = new PocketBase("https://db.shopping-list.furuknappen.no", new LocalAuthStore())
 
 async function login(email, password) {
   console.log("Logging in...")
   try {
-    const result = await pb.collection("users").authWithPassword(email, password);
-    console.log("Logging in succeded");
+    const result = await pb.collection("users").authWithPassword(email, password)
+    console.log("Logging in succeded")
     return {
       id: result.record.id,
       name: result.record.name,
       email: result.record.email,
-    };
+    }
   } catch (error) {
     console.error("Logging in failed with error: ", error)
     throw error
   }
 }
 
-function getLoggedInUser(){
+function getLoggedInUser() {
   return {
     id: pb.authStore.baseModel.id,
     name: pb.authStore.baseModel.name,
@@ -33,19 +33,33 @@ async function logout() {
 }
 
 async function listItems() {
-  console.log("Getting all items...")
   try {
-    const result = await pb.collection("items").getFullList()
-    console.log("Getting all items succeded")
+    const result = await pb.collection("items").getFullList({
+      fields: "id,name,amount,checked",
+      expand: "",
+      filter: "",
+      sort: "checked",
+    })
+    // console.log("listItems result:")
+    // console.table(result)
+    return result
+  } catch (error) {
+    console.error("Getting all items failed with error: ", error)
+  }
+}
 
-    return result.map((item, index) => ({
-      id: item.id,
-      name: item.Name,
-      checked: item.Checked,
-      amount: item.Amount,
-      updated: item.updated,
-      index: index,
-    }))
+async function listShoppingItems() {
+  try {
+    const date = new Date().toISOString().split("T")[0]
+    const result = await pb.collection("items").getList(1, 1000, {
+      fields: "id,name,amount,checked",
+      expand: "",
+      filter: `(checked = false || updated > '${date}')`,
+      sort: "checked",
+    })
+    // console.log("listShoppingItems result:")
+    // console.table(result.items)
+    return result.items
   } catch (error) {
     console.error("Getting all items failed with error: ", error)
   }
@@ -75,7 +89,7 @@ async function uncheckItem(id) {
 
 // Refresh the login session on page load
 try {
-  await pb.collection("users").authRefresh();
+  await pb.collection("users").authRefresh()
   console.log("Refreshed login")
 } catch (error) {
   console.log("Failed to refresh login")
@@ -86,6 +100,7 @@ export default {
   logout,
   getLoggedInUser,
   listItems,
+  listShoppingItems,
   checkItem,
   uncheckItem,
 }
