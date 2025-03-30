@@ -65,6 +65,23 @@ async function listShoppingItems() {
   }
 }
 
+async function searchItems(text) {
+  try {
+    const result = await pb.collection("items").getList(1, 1000, {
+      fields: "id,name,amount,checked",
+      expand: "",
+      filter: `name~'${text}'`,
+      sort: "checked",
+    })
+    // console.log("searchItems result:")
+    // console.table(result.items)
+    return result.items
+  } catch (error) {
+    console.error("Getting all items failed with error: ", error)
+  }
+}
+
+
 async function checkItem(id) {
   console.log(`Checking item with id = "${id}" ...`)
 
@@ -101,6 +118,7 @@ export default {
   getLoggedInUser,
   listItems,
   listShoppingItems,
+  searchItems,
   checkItem,
   uncheckItem,
 }
