@@ -21,3 +21,20 @@
   border-color: var(--darkGreenColor);
   outline: none;
 } */
+
+
+/* #searchOutput ul{
+ position:absolute;
+ background-color: palevioletred;
+ border-style: 3px solid red;
+ display: flex;
+ flex-direction: column;
+ padding: 15px 10px;
+
+}
+#searchOutput li{
+  list-style:none;
+  border-radius: 3px;
+  padding: 15px 10px;
+  cursor: pointer;
+} */

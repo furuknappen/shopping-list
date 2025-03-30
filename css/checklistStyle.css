@@ -1,15 +1,15 @@
 #searchbarParent {
   position: relative;
-  width:100vw;
-  padding:3.3em 1em 0.3em 1em;
+  width: 100vw;
+  padding: 3.3em 1em 0.3em 1em;
   justify-self: center;
 }
 
 #searchbar {
-  position: relative; 
+  position: relative;
   background-color: rgb(239, 250, 239);
   padding: 0.8em;
-  width: 100%;  
+  width: 100%;
   border: 3px solid rgb(50, 97, 50);
   border-radius: 5px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -20,6 +20,28 @@
   border-style: solid;
   border-color: var(--borderColor);
   outline: none;
+  border-radius: 3px 3px 0px 0px;
+}
+#searchOutput {
+  width: 100%;
+  position: relative;
+}
+
+#searchOutput ul {
+  position: absolute;
+  z-index: 40;
+  margin-top: 0;
+  border: none;
+  border-radius: 0px 0px 3px 3px;
+  background-color: rgb(213, 241, 228);
+  flex-direction: column;
+  width: 100%;
+}
+
+#searchOutput li {
+  list-style: none;
+  padding: 10px 10px;
+  cursor: pointer;
 }
 
 #checklistDiv {
@@ -109,11 +131,9 @@
   }
   #searchbarParent {
     position: relative;
-    width:60vw;
-    padding:3.9em 1em 0.3em 1em;
-    
+    width: 60vw;
+    padding: 3.9em 1em 0.3em 1em;
   }
-  
 }
 
 /*........ Desktops ............*/
@@ -128,8 +148,8 @@
   }
   #searchbarParent {
     position: relative;
-    width:40vw;
-    padding:0.3em 1em 0.3em 1em;
+    width: 40vw;
+    padding: 0.3em 1em 0.3em 1em;
   }
 }
 

@@ -2,7 +2,6 @@ import db from "./db.js"
 
 console.log("start")
 
-
 async function rerenderList() {
   const items = await db.listItems()
 
@@ -20,7 +19,7 @@ async function rerenderList() {
    x ${item.amount} 
   </span> 
 
-  <input class="checkbox" type="checkbox" name="checkbox" id="${index}"> ` 
+  <input class="checkbox" type="checkbox" name="checkbox" id="${index}"> `
     ul.appendChild(li)
   })
 }
@@ -28,5 +27,3 @@ async function rerenderList() {
 await rerenderList()
 
 console.log("end")
-
-
