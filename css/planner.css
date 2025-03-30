@@ -1,3 +1,10 @@
+
+/* #searchbarParent {
+  position: relative;
+  background-color: aqua;
+}
+
+
 #searchbar {
   position: relative;
   background-color: rgb(239, 250, 239);
@@ -13,4 +20,4 @@
   border-style: solid;
   border-color: var(--darkGreenColor);
   outline: none;
-}
+} */

@@ -19,8 +19,8 @@ async function rerenderList() {
   <span id="itemAmount">
    x ${item.amount} 
   </span> 
-  <input class="checkbox" type="checkbox" name="checkbox" id="${index}"> `
 
+  <input class="checkbox" type="checkbox" name="checkbox" id="${index}"> ` 
     ul.appendChild(li)
   })
 }
@@ -28,3 +28,5 @@ async function rerenderList() {
 await rerenderList()
 
 console.log("end")
+
+
