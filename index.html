@@ -33,6 +33,7 @@
 
 </head>
 <!-- plannerpage -->
+
 <body>
   <header id="headerDiv">
     <h1 id="headerText"> Planningmode </h1>
@@ -49,21 +50,35 @@
   </header>
 
   <main>
-    <input id="searchbar" type="text" placeholder="Search..">
+    <div id="searchbarParent">
+      <input id="searchbar" type="text" placeholder="Search.."></input>
+    </div>
     <div id="checklistDiv">
-      <ul id="uncheckedItemsShoppingmode">
+      <ul id="uncheckedItemsPlanning">
 
       </ul>
-      <ul id="checkedItemsShoppingmode">
+      <ul id="checkedItemsPlanning">
 
       </ul>
     </div>
+
+
+    <div id="popUpEdit">
+      <div id="amountEdit">
+        <button class="amountbtns" onclick="sub1()"><b>-</b></button>
+        <input id="amountInput" value="1"> </input>
+        <button class="amountbtns" onclick="add1()">+</button>
+      </div>
+      <!-- <button id="removeItem" onClick="">  -->
+      <!-- remove(${index}) inni onclick-->
+      <!-- <img id="trashSvg" src="../svg-img/trash.svg" alt="_alternate text_">
+      </button> -->
   </main>
 
 
- 
 
-  <!-- js  --> 
+
+  <!-- js  -->
   <script src="js/header.js"></script>
   <script src="js/register-service-worker.js"></script>
   <script type="module" src="lib/pocketbase.es.mjs"></script>

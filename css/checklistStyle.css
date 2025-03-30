@@ -1,3 +1,27 @@
+#searchbarParent {
+  position: relative;
+  width:100vw;
+  padding:3.3em 1em 0.3em 1em;
+  justify-self: center;
+}
+
+#searchbar {
+  position: relative; 
+  background-color: rgb(239, 250, 239);
+  padding: 0.8em;
+  width: 100%;  
+  border: 3px solid rgb(50, 97, 50);
+  border-radius: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: medium;
+}
+
+#searchbar:focus {
+  border-style: solid;
+  border-color: var(--borderColor);
+  outline: none;
+}
+
 #checklistDiv {
   width: 100%;
   height: auto;
@@ -5,7 +29,7 @@
   padding: 0.5em;
   position: relative;
   border-radius: 4px;
-  padding-top:0em; 
+  padding-top: 0em;
   padding-bottom: 0em;
 }
 
@@ -31,6 +55,12 @@
 #itemAmount {
   width: auto;
   padding-right: 2%;
+  border: none;
+  background-color: transparent;
+  margin-right: 0.5em;
+  font-size: 0.9em;
+  /* biome-ignore lint/a11y/useGenericFontNames: <explanation> */
+  font-family: nunito;
 }
 
 /* CHECKBOX START*/
@@ -66,10 +96,6 @@
 
 /* CHECKBOX STOP*/
 
-:root {
-  --darkGreenColor: rgb(27, 114, 27);
-}
-
 /* iPads (tablets) - Landscape */
 @media (min-width: 769px) and (max-width: 1024px) {
   #checklistDiv {
@@ -81,6 +107,13 @@
     border-style: solid;
     border-color: var(--borderColor);
   }
+  #searchbarParent {
+    position: relative;
+    width:60vw;
+    padding:3.9em 1em 0.3em 1em;
+    
+  }
+  
 }
 
 /*........ Desktops ............*/
@@ -93,4 +126,70 @@
     border-style: solid;
     border-color: var(--borderColor);
   }
+  #searchbarParent {
+    position: relative;
+    width:40vw;
+    padding:0.3em 1em 0.3em 1em;
+  }
+}
+
+/* copiert */
+
+#popUpEdit {
+  flex-direction: row;
+  border-color: aqua;
+  display: none;
+  margin: 5px;
+}
+
+#amountEdit {
+  background-color: #f1f1f1;
+  display: flex;
+  /* flex-direction: row; */
+
+  /* position:relative; */
+  /* align-items:center
+  /* justify-content: center; */
+  border-color: var(--borderColor);
+  border-width: 2px;
+  border-radius: 15px;
+  border-style: solid;
+}
+
+#removeItem {
+  border-radius: 50px;
+  border-style: solid;
+  padding: 5px 5px 3px 5px;
+  border-color: var(--borderColor);
+  margin-left: 6px;
+}
+
+#trashSvg {
+  margin: 1px 3px 2px 3px;
+}
+
+.amountbtns {
+  background-color: #f1f1f1;
+  border-style: hidden;
+  /* padding-left: 14px; 
+  padding-right: 14px; */
+  padding: 10px;
+  margin: 0px;
+  /* font-style: bold; */
+  font-size: large;
+  border-radius: 15px;
+}
+
+#amountInput {
+  width: 30px;
+  padding-left: 10px;
+  margin: 0px;
+  outline: none;
+  /* border:none; */
+  background-color: #f1f1f1;
+  /* border-top:0px;
+  border-bottom:0px; */
+  border-style: hidden;
+  height: 90%;
+  box-sizing: border-box;
 }
