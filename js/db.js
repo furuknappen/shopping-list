@@ -61,7 +61,6 @@ async function listCategories() {
     console.error("Getting all items failed with error: ", error)
   }
 }
-await listCategories()
 
 async function listShoppingItems() {
   try {
@@ -134,6 +133,7 @@ export default {
   logout,
   getLoggedInUser,
   listItems,
+  listCategories,
   listShoppingItems,
   searchItems,
   checkItem,
