@@ -48,18 +48,35 @@ async function listItems() {
   }
 }
 
+async function listCategories() {
+  try {
+    const result = await pb.collection("categories").getFullList({
+      fields: "id,name,order",
+      expand: "",
+      filter: "",
+      sort: "order",
+    })
+    return result
+  } catch (error) {
+    console.error("Getting all items failed with error: ", error)
+  }
+}
+await listCategories()
+
 async function listShoppingItems() {
   try {
     const date = new Date().toISOString().split("T")[0]
     const result = await pb.collection("items").getList(1, 1000, {
-      fields: "id,name,amount,checked",
-      expand: "",
+      fields: "id,name,amount,checked,expand.category.name",
+      expand: "category",
       filter: `(checked = false || updated > '${date}')`,
-      sort: "checked",
+      sort: "checked,category.order",
     })
-    // console.log("listShoppingItems result:")
-    // console.table(result.items)
-    return result.items
+    const items = result.items.map(({expand,...item}) => ({
+      ...item,
+      category: expand.category.name
+    }))
+    return items
   } catch (error) {
     console.error("Getting all items failed with error: ", error)
   }
