@@ -66,14 +66,15 @@ async function listShoppingItems() {
   try {
     const date = new Date().toISOString().split("T")[0]
     const result = await pb.collection("items").getList(1, 1000, {
-      fields: "id,name,amount,checked,expand.category.name",
+      fields: "id,name,amount,checked,expand.category.name,expand.category.color",
       expand: "category",
       filter: `(checked = false || updated > '${date}')`,
       sort: "checked,category.order",
     })
     const items = result.items.map(({expand,...item}) => ({
       ...item,
-      category: expand.category.name
+      category: expand.category.name,
+      categoryColor: expand.category.color,
     }))
     return items
   } catch (error) {
