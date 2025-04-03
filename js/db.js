@@ -103,7 +103,7 @@ async function checkItem(id) {
   console.log(`Checking item with id = "${id}" ...`)
 
   try {
-    await pb.collection("items").update(id, { Checked: true })
+    await pb.collection("items").update(id, { checked: true })
     console.log(`Checking item with id = "${id}" succeded`)
   } catch (error) {
     console.error(`Checking with id = "${id}" failed with error`, error)
@@ -114,7 +114,7 @@ async function uncheckItem(id) {
   console.log(`Unchecking item with id = "${id}" ...`)
 
   try {
-    await pb.collection("items").update(id, { Checked: false })
+    await pb.collection("items").update(id, { checked: false })
     console.log(`Unchecking item with id = "${id}" succeded`)
   } catch (error) {
     console.error(`Unchecking with id = "${id}" failed with error`, error)

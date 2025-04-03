@@ -38,3 +38,100 @@
   padding: 15px 10px;
   cursor: pointer;
 } */
+
+#searchbarParent {
+  position: relative;
+  width: 100vw;
+  padding: 3.3em 1em 0.3em 1em;
+  justify-self: center;
+}
+
+#searchbar {
+  position: relative;
+  background-color: rgb(239, 250, 239);
+  padding: 0.8em;
+  width: 100%;
+  border: 3px solid rgb(50, 97, 50);
+  border-radius: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: medium;
+}
+
+#searchbar:focus {
+  border-style: solid;
+  border-color: var(--borderColor);
+  outline: none;
+  border-radius: 3px 3px 0px 0px;
+}
+#searchOutput {
+  width: 100%;
+  position: relative;
+
+}
+
+#searchOutput ul {
+  position: absolute;
+  z-index: 40;
+  margin-top: 0;
+  border: none;
+  border-radius: 0px 0px 3px 3px;
+  background-color: rgb(213, 241, 228);
+  flex-direction: column;
+  width: 100%;  
+}
+
+#searchOutput li {
+  list-style: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  display:flex;
+  flex-direction: row;
+  
+}
+
+
+/* CHECKBOX START*/
+.checkbox1[type="checkbox"] {
+  margin-inline: 2%;
+  appearance: none;
+  display: grid;
+  place-content: center;
+}
+
+.checkbox1[type="checkbox"]::before {
+  content: "";
+  width: 0.2em;
+  height: 0.2em;
+  transform: scale(0);
+  /* transition: 120ms transform ease-in-out; */
+  /* transform-origin: bottom left; */
+  /* box-shadow: inset 1em 1em var(--borderColor); */
+  padding: 5px 5px 5px 5px;
+  background-color: var(--borderColor);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.checkbox1[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+/* CHECKBOX STOP*/
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  #searchbarParent {
+    position: relative;
+    width: 60vw;
+    padding: 3.9em 1em 0.3em 1em;
+  }
+}
+
+/*........ Desktops ............*/
+@media (min-width: 1025px) {
+
+  #searchbarParent {
+    position: relative;
+    width: 40vw;
+    padding: 0.3em 1em 0.3em 1em;
+  }
+}

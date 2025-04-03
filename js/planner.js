@@ -11,7 +11,7 @@ async function rerenderList() {
     const li = document.createElement("li")
     li.className = "checklistItem"
     li.id = index
-
+    const checked = item.checked ? "checked" : ""
     li.innerHTML = `<span id="itemName">
     ${item.name} 
   </span>        
@@ -20,7 +20,7 @@ async function rerenderList() {
       </button>
 
 
-  <input class="checkbox" type="checkbox" name="checkbox" id="${index}"> `
+  <input onclick="selectOutput1(id)" class="checkbox" type="checkbox" name="checkbox" id="l_${item.id}" ${checked}> `
     ul.appendChild(li)
   })
 }
@@ -97,8 +97,47 @@ searchbar.onkeyup = async () => {
 
 function display(result) {
   const content = result.map((item) => {
-    return `<li> ${item.name} </li>`
+    const checked = item.checked ? "checked" : ""
+    return `<li onclick="selectOutput('${item.id}')">  
+    <input  class="checkbox1" type="checkbox" name="checkbox" diasbled id="s_${item.id}" ${checked}> ${item.name}  </li>`
   })
   // searchOutput.innerHTML = `<ul> <li> Brød </li> </ul>`
   searchOutput.innerHTML = `<ul> ${content.join("")} </ul>`
 }
+
+window.selectOutput = selectOutput
+
+async function selectOutput(id) {
+  const plannerlistCheckbox = document.getElementById(`l_${id}`)
+  const searchCheckbox = document.getElementById(`s_${id}`)
+  if (searchCheckbox.checked) {
+    await db.uncheckItem(id)
+    searchCheckbox.checked = false
+    plannerlistCheckbox.checked = false
+  } else {
+    await db.checkItem(id)
+    searchCheckbox.checked = true
+    plannerlistCheckbox.checked = true
+  }
+}
+
+window.selectOutput1=selectOutput1
+// fix this
+async function selectOutput1(id) {
+  const plannerlistCheckbox = document.getElementById(`l_${id}`)
+  const searchCheckbox = document.getElementById(`s_${id}`)
+  if (plannerlistCheckbox.checked) {
+    await db.uncheckItem(id)
+    searchCheckbox.checked = false
+    plannerlistCheckbox.checked = false
+  } else {
+    await db.checkItem(id)
+    searchCheckbox.checked = true
+    plannerlistCheckbox.checked = true
+  }
+}
+
+
+searchbar.addEventListener("enter", addToUnchecked)
+
+function addToUnchecked() {}
