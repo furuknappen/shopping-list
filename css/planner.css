@@ -96,6 +96,7 @@
   appearance: none;
   display: grid;
   place-content: center;
+  position: relative;
 }
 
 .checkbox1[type="checkbox"]::before {

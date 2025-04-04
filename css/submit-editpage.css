@@ -1,0 +1,159 @@
+#addItemWindow {
+  bottom: 0px;
+  width: 95%;
+  margin-inline: auto;
+  border-radius: 15px;
+  border-style: hidden;
+  position: fixed;
+  height: auto;
+  padding: 50px;
+  /* display: flex; */
+  flex-direction: column;
+  padding: 1.2em;
+  background-color: #f1f1f1;
+  margin-block: 50% 5%;
+}
+
+.additemwindowText {
+  color: gray;
+  font-size: 0.8em;
+  margin-left: 9px;
+}
+
+/* INPUT START */
+#addItemWindow:focus {
+  outline: none;
+}
+
+#ItemInputname {
+  background-color: #f1f1f1;
+  padding: 10px;
+
+  border-style: hidden;
+  border-bottom: solid 1px;
+  border-color: rgb(131, 133, 131);
+  width: 90%;
+
+  font-size: 1.3em;
+  margin: 5px;
+  margin-bottom: 20px;
+}
+#ItemInputname:focus {
+  outline: none;
+}
+
+/* INPUT STOP */
+
+/* AMOUNT START */
+
+#amountEdit {
+  background-color: #f1f1f1;
+  display: flex;
+  border-color: var(--borderColor);
+  border-width: 2px;
+  border-radius: 15px;
+  border-style: solid;
+}
+
+.amountbtns {
+  background-color: #f1f1f1;
+  border-style: hidden;
+  padding: 10px;
+  margin: 0px;
+  font-size: large;
+  border-radius: 15px;
+}
+
+#amountInput {
+  width: 30px;
+  padding-left: 10px;
+  margin: 0px;
+  outline: none;
+  background-color: #f1f1f1;
+  border-style: hidden;
+  height: 90%;
+  box-sizing: border-box;
+}
+/* AMOUNT STOP */
+
+/* CATEGORIES START */
+#categoryListFieldset {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  border-style: hidden;
+  justify-content: center;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+}
+
+.categoryListFieldset label {
+  display: inline-block;
+  padding: 0px 5px;
+  font-size: 0.8em;
+  border: 3px solid transparent;
+  border-radius: 15px;
+  margin: 3px 3px;
+}
+
+.categoryListFieldset input[type="radio"]:focus + label {
+  border: 3px solid;
+  box-shadow: 0 0 0 2px #f3f5f6 inset;
+  box-sizing: border-box;
+}
+
+.categoryListFieldset input[type="radio"]:checked + label {
+  border: 3px solid;
+  box-shadow: 0 0 0 2px #f3f5f6 inset;
+  box-sizing: border-box;
+}
+/* CATEGORIES STOP */
+
+/* BOTTOM ROW START */
+#closeNewItemWindow {
+  background-color: transparent;
+  border-radius: 50px;
+  margin: 0;
+  border: hidden;
+  padding: 10px;
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  top: 14px;
+  right: 10px;
+  font-size: 20px;
+  color: gray;
+}
+
+#bottomRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+#removeItem {
+  border-radius: 50px;
+  border-style: none;
+  padding: 0px 0px 3px 0px;
+  margin: 9px;
+}
+
+#trashSvg {
+  margin: 1px 3px 2px 3px;
+}
+
+.submitPageBtn {
+  margin: 9px;
+  border-radius: 15px;
+  border-color: var(--borderColor);
+  border-style: solid;
+  background-color: rgb(184, 218, 157);
+  width: 100;
+  height: auto;
+  padding: 0.9em 0.7em;
+  position: relative;
+}
+/* BOTTOM ROW STOP */
+

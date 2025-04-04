@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/checklistStyle.css">
   <link rel="stylesheet" href="css/planner.css">
-
+  <link rel="stylesheet" href="css/submit-editpage.css">
   <link rel="manifest" href="manifest.json">
 
 </head>
@@ -40,7 +40,7 @@
     <div id="hamburgerBtnDiv">
       <button id="hamburgerMenuBtn" onclick="openMenu()">
         <img id="hamburgerSvg" src="../svg-img/menu-2.svg" alt="_alternate text_"></button>
-      </button>
+
     </div>
     <div id="hamburgerMenu">
       <a href="/">Planner</a>
@@ -51,7 +51,7 @@
 
   <main>
     <div id="searchbarParent">
-      <input id="searchbar" type="text" placeholder="Search.." autocomplete="off"></input>
+      <input id="searchbar" type="text" placeholder="Search.." autocomplete="off">
       <div id="searchOutput"> </div>
     </div>
 
@@ -64,16 +64,74 @@
       </ul>
     </div>
 
+    <!-- <button data-open-modal>open modal </button> -->
+    <!-- id="popUpEdit" -->
 
-    <div id="popUpEdit">
-      <div id="amountEdit">
-        <button class="amountbtns" onclick="sub1()"><b>-</b></button>
-        <input id="amountInput" value="1"> </input>
-        <button class="amountbtns" onclick="add1()">+</button>
+    <!-- edit page -->
+    <dialog data-modal id="addItemWindow">
+      <div>
+        <span class="additemwindowText">Edit item</span>
+        <input type="text" id="ItemInputname">
+        <span class="additemwindowText">Amount</span>
+        <div>
+          <button class="amountbtns" onclick="sub1()"><b>-</b></button>
+          <input id="amountInput" value="1">
+          <button class="amountbtns" onclick="add1()">+</button>
+        </div>
+
+        <span class="additemwindowText">Categories</span>
+        <!-- <ul > here will the categorylist be
+        </ul> -->
+
+        <fieldset id="categoryListFieldset" class="categoryListFieldset">
+        </fieldset>
+
+        <div id="bottomRow">
+          <button id="removeItem" onclick="closeNewItemWindow()">
+            <img id="hamburgerSvg" src="../svg-img/trash.svg" alt="Delete item button">
+          </button>
+          <button data-close-modal class="submitPageBtn">Close</button>
+          <button class="submitPageBtn" onclick="newItemSubmit()"> Save </button>
+        </div>
       </div>
-      <!-- <button id="removeItem" onClick="">  -->
-      <!-- remove(${index}) inni onclick-->
-      <!-- <img id="trashSvg" src="../svg-img/trash.svg" alt="_alternate text_">
+    </dialog>
+
+
+    <!-- add page -->
+    <dialog data-modal id="addItemWindow">
+      <div>
+        <span class="additemwindowText">Add item</span>
+        <input type="text" id="ItemInputname">
+        <span class="additemwindowText">Amount</span>
+        <div>
+          <button class="amountbtns" onclick="sub1()"><b>-</b></button>
+          <input id="amountInput" value="1">
+          <button class="amountbtns" onclick="add1()">+</button>
+        </div>
+
+        <span class="additemwindowText">Categories</span>
+        <!-- <ul > here will the categorylist be
+        </ul> -->
+
+        <fieldset id="categoryListFieldset" class="categoryListFieldset">
+        </fieldset>
+
+        <div id="bottomRow">
+          <button id="removeItem" onclick="closeNewItemWindow()">
+            <img id="hamburgerSvg" src="../svg-img/trash.svg" alt="Delete item button">
+          </button>
+          <button data-close-modal class="submitPageBtn">Close</button>
+          <button class="submitPageBtn" onclick="newItemSubmit()"> Add new item</button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- <div >
+      <div id="amountEdit"></div> -->
+
+    <!-- <button id="removeItem" onClick="">  -->
+    <!-- remove(${index}) inni onclick-->
+    <!-- <img id="trashSvg" src="../svg-img/trash.svg" alt="_alternate text_">
       </button> -->
   </main>
 
@@ -86,6 +144,8 @@
   <script type="module" src="lib/pocketbase.es.mjs"></script>
   <script type="module" src="js/db.js"></script>
   <script type="module" src="js/planner.js"></script>
+  <script type="module" src="js/editItemPopup.js"> </script>
+
 </body>
 
 </html>
