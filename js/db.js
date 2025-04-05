@@ -121,10 +121,14 @@ async function uncheckItem(id) {
   }
 }
 
+async function RefreshLogin(){
+  await pb.collection("users").authRefresh();
+  console.log("Refreshed login")
+}
+
 // Refresh the login session on page load
 try {
-  await pb.collection("users").authRefresh()
-  console.log("Refreshed login")
+  setTimeout(RefreshLogin, 5000)
 } catch (error) {
   console.log("Failed to refresh login")
 }
