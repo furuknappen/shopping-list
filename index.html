@@ -90,7 +90,7 @@
           <button id="removeItem" onclick="closeNewItemWindow()">
             <img id="hamburgerSvg" src="../svg-img/trash.svg" alt="Delete item button">
           </button>
-          <button data-close-modal class="submitPageBtn">Close</button>
+          <button onclick="closeEditModal()" class="submitPageBtn">Close</button>
           <button class="submitPageBtn" onclick="newItemSubmit()"> Save </button>
         </div>
       </div>
@@ -144,7 +144,7 @@
   <script type="module" src="lib/pocketbase.es.mjs"></script>
   <script type="module" src="js/db.js"></script>
   <script type="module" src="js/planner.js"></script>
-  <script type="module" src="js/editItemPopup.js"> </script>
+  <script type="module" src="js/editItemModal.js"> </script>
 
 </body>
 
