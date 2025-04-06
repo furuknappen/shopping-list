@@ -39,4 +39,5 @@ async function checkboxChanged (id) {
   else {
     await db.uncheckItem(id)
   }
+  await displayItemList()
 }
