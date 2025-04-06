@@ -12,6 +12,7 @@ async function displayItemList() {
     .join("")
 }
 
+
 function listItem(id, name, amount, isChecked) {
   const checked = isChecked ? "checked" : ""
   return `<li class="checklistItem" id='${id}'> 

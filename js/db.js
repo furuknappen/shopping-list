@@ -47,6 +47,17 @@ async function listItems() {
     console.error("Getting all items failed with error: ", error)
   }
 }
+async function getItem(id) {
+  try {
+    const result = await pb.collection("items").getOne(id)
+
+    // console.log("listItems result:")
+    // console.table(result)
+    return result
+  } catch (error) {
+    console.error("Getting all items failed with error: ", error)
+  }
+}
 
 async function listCategories() {
   try {
@@ -71,7 +82,7 @@ async function listShoppingItems() {
       filter: `(checked = false || updated > '${date}')`,
       sort: "checked,category.order",
     })
-    const items = result.items.map(({expand,...item}) => ({
+    const items = result.items.map(({ expand, ...item }) => ({
       ...item,
       category: expand.category.name,
       categoryColor: expand.category.color,
@@ -98,7 +109,6 @@ async function searchItems(text) {
   }
 }
 
-
 async function checkItem(id) {
   console.log(`Checking item with id = "${id}" ...`)
 
@@ -121,14 +131,23 @@ async function uncheckItem(id) {
   }
 }
 
-async function RefreshLogin(){
-  await pb.collection("users").authRefresh();
-  console.log("Refreshed login")
+async function updateItem(id, name, amount, category, checked = true) {
+  try {
+    await pb.collection("items").update(id, {
+      name: name,
+      checked: checked,
+      amount: amount,
+      category: category,
+    })
+  } catch (error) {
+    console.error(`Unchecking with id = "${id}" failed with error`, error)
+  }
 }
 
 // Refresh the login session on page load
 try {
-  setTimeout(RefreshLogin, 5000)
+  await pb.collection("users").authRefresh()
+  console.log("Refreshed login")
 } catch (error) {
   console.log("Failed to refresh login")
 }
@@ -143,4 +162,6 @@ export default {
   searchItems,
   checkItem,
   uncheckItem,
+  updateItem,
+  getItem,
 }

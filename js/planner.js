@@ -1,4 +1,7 @@
 import db from "./db.js"
+export default {
+  displayItemList
+}
 
 await displayItemList()
 
@@ -25,7 +28,7 @@ async function displayItemList() {
 
 function listItem(id, name, amount, isChecked) {
   const checked = isChecked ? "checked" : ""
-  return `<li data-open-modal onclick="openEditModal('${name}')" class="checklistItem" id='${id}'> 
+  return `<li data-open-modal onclick="openEditModal('${id}')" class="checklistItem" id='${id}'> 
 
       <span  id="itemName"> 
       ${name} 
@@ -173,7 +176,7 @@ function displayCategories() {
 
 function createCategoryItem(name, id, color) {
   return `
-   <input type="radio" id="${id}" name="categories" value="${name}" />
+   <input type="radio" id="${id}" name="categories" value="${id}" />
    
    <label for="${id}" style="border-color: ${color}; background-color: ${color};" >${name}</label>`
 }

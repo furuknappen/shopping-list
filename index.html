@@ -71,6 +71,7 @@
     <dialog data-modal id="addItemWindow">
       <div>
         <span class="additemwindowText">Edit item</span>
+        <input type="text" id="ItemId" value="asd" hidden>
         <input type="text" id="ItemInputname">
         <span class="additemwindowText">Amount</span>
         <div>
@@ -80,9 +81,6 @@
         </div>
 
         <span class="additemwindowText">Categories</span>
-        <!-- <ul > here will the categorylist be
-        </ul> -->
-
         <fieldset id="categoryListFieldset" class="categoryListFieldset">
         </fieldset>
 
@@ -91,7 +89,7 @@
             <img id="hamburgerSvg" src="../svg-img/trash.svg" alt="Delete item button">
           </button>
           <button onclick="closeEditModal()" class="submitPageBtn">Close</button>
-          <button class="submitPageBtn" onclick="newItemSubmit()"> Save </button>
+          <button class="submitPageBtn" onclick="saveEditedItem()"> Save </button>
         </div>
       </div>
     </dialog>
