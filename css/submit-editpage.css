@@ -86,7 +86,7 @@
 }
 
 input[type="radio"] {
-  -webkit-appearance: none;
+  appearance: none;
 }
 
 .categoryListFieldset label {
@@ -156,4 +156,3 @@ input[type="radio"] {
   position: relative;
 }
 /* BOTTOM ROW STOP */
-
