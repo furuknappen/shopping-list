@@ -1,30 +1,42 @@
 import db from "./db.js"
 
-console.log("start")
+await displayItemList()
 
-async function rerenderList() {
+async function displayItemList() {
   const items = await db.listShoppingItems()
 
-  const ul = document.getElementById("uncheckedItemsShoppingmode")
-
-  items.forEach((item, index) => {
-    const li = document.createElement("li")
-    li.className = "checklistItem"
-    li.id = index
-    const checked = item.checked ? "checked" : ""
-
-    li.innerHTML = `<span id="itemName">
-    ${item.name}
-  </span>
-  <span id="itemAmount">
-   x ${item.amount} 
-  </span> 
-
-  <input class="checkbox" type="checkbox" name="checkbox" id="${index}" ${checked}> `
-    ul.appendChild(li)
-  })
+  document.getElementById("uncheckedItemsShoppingmode").innerHTML = items
+    .map((item) => {
+      return listItem(item.id, item.name, item.amount, item.checked)
+    })
+    .join("")
 }
-//  - ${item.category} - ${item.categoryColor}
-await rerenderList()
 
-console.log("end")
+function listItem(id, name, amount, isChecked) {
+  const checked = isChecked ? "checked" : ""
+  return `<li class="checklistItem" id='${id}'> 
+
+      <span  id="itemName"> 
+      ${name} 
+      </span>  
+            
+        <button  class="listItemBtn" id="itemAmount">  
+        x ${amount} 
+        </button>
+        
+       <input  class="checkbox" type="checkbox" name="checkbox" onclick="checkboxChanged('${id}')" id="l_${id}" ${checked}>
+  </li>`
+}
+
+window.checkboxChanged = checkboxChanged
+
+async function checkboxChanged (id) {
+  const checkbox = document.getElementById(`l_${id}`)
+  if (checkbox.checked){
+    await db.checkItem(id)
+
+  }
+  else {
+    await db.uncheckItem(id)
+  }
+}
