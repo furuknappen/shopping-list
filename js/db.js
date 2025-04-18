@@ -73,6 +73,26 @@ async function listCategories() {
   }
 }
 
+async function listPlanningItems() {
+  try {
+    const date = new Date().toISOString().split("T")[0]
+    const result = await pb.collection("items").getList(1, 1000, {
+      fields: "id,name,amount,checked,expand.category.name,expand.category.color",
+      expand: "category",
+      filter: "",
+      sort: "category.order,name",
+    })
+    const items = result.items.map(({ expand, ...item }) => ({
+      ...item,
+      category: expand.category.name,
+      categoryColor: expand.category.color,
+    }))
+    return items
+  } catch (error) {
+    console.error("Getting all items failed with error: ", error)
+  }
+}
+
 async function listShoppingItems() {
   try {
     const date = new Date().toISOString().split("T")[0]
@@ -162,6 +182,7 @@ export default {
   getLoggedInUser,
   listItems,
   listCategories,
+  listPlanningItems,
   listShoppingItems,
   searchItems,
   checkItem,

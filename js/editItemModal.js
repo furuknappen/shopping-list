@@ -35,3 +35,27 @@ async function saveEditedItem() {
   await planner.displayItemList()
   closeEditModal()
 }
+
+
+
+//  CATEGORIES
+
+const categories = await db.listCategories()
+console.table(categories)
+
+function displayCategories() {
+  const fieldset = document.getElementById("categoryListFieldset")
+  fieldset.innerHTML = categories
+    .map((category) => {
+      return createCategoryItem(category.name, category.id, category.color)
+    })
+    .join("")
+}
+
+function createCategoryItem(name, id, color) {
+  return `
+   <input type="radio" id="${id}" name="categories" value="${id}" />
+   
+   <label for="${id}" style="border-color: ${color}; background-color: ${color};" >${name}</label>`
+}
+displayCategories()

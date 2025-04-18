@@ -6,7 +6,7 @@ export default {
 await displayItemList()
 
 async function displayItemList() {
-  const items = await db.listItems()
+  const items = await db.listPlanningItems()
 
   document.getElementById("uncheckedItemsPlanning").innerHTML = items
     .map((item) => {
@@ -85,9 +85,8 @@ function listItem(id, name, amount, isChecked) {
 //   amountInput.value = getAll()[editId].amount
 //   rerenderList()
 // }
-
 const searchbar = document.getElementById("searchbar")
-const searchOutput = document.getElementById("searchOutput")
+const searchList = document.getElementById("searchList");
 
 searchbar.onkeyup = async () => {
   const items = await db.listItems()
@@ -114,7 +113,7 @@ function display(result) {
     <input  class="checkbox1" type="checkbox" name="checkbox" diasbled id="s_${item.id}" ${checked}> ${item.name}     
   </li>`
   })
-  searchOutput.innerHTML = `<ul> ${content.join("")} </ul>`
+  searchList.innerHTML = content.join("")
 }
 
 // makes checkmarks comunicate across
@@ -153,30 +152,24 @@ async function selectOutputList(id) {
 }
 
 
+searchbar.addEventListener("keypress", async (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
 
+    const isChecked = searchList.firstElementChild.firstElementChild.checked
 
-searchbar.addEventListener("enter", addToUnchecked)
+    if (!isChecked){
+      searchbar.value = "";
+      return;
+    }
 
-function addToUnchecked() {}
+    const id = searchList.firstElementChild.firstElementChild.id
+    const cleanId = id.replace("s_", "")
 
-//  CATEGORIES
+    document.getElementById(`l_${cleanId}`).checked = false
+    await db.uncheckItem(cleanId)
 
-const categories = await db.listCategories()
-console.table(categories)
+    searchbar.value = "";
+  }
+})
 
-function displayCategories() {
-  const fieldset = document.getElementById("categoryListFieldset")
-  fieldset.innerHTML = categories
-    .map((category) => {
-      return createCategoryItem(category.name, category.id, category.color)
-    })
-    .join("")
-}
-
-function createCategoryItem(name, id, color) {
-  return `
-   <input type="radio" id="${id}" name="categories" value="${id}" />
-   
-   <label for="${id}" style="border-color: ${color}; background-color: ${color};" >${name}</label>`
-}
-displayCategories()
