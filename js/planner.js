@@ -38,7 +38,6 @@ function listItem(id, name, amount, isChecked) {
 // const findSelected = () => {
 //   const selected =document.querySelector("input[name='categories']:checked").value
 // }
-// console.log(findSelected());
 
 //  my test, dosent work
 // async function getTotalUnchecked () {
@@ -46,21 +45,15 @@ function listItem(id, name, amount, isChecked) {
 //   const item = items.filter((item) => {
 //    return item.checked === true
 
-// console.log(item.checked)
 // })
 // const length= unchecked.length
-// console.log(item)
-// console.log(checked)
 // return length
-
-// console.log( length)
 
 // }
 // getTotalUnchecked()
 // // totalUnchecked.reduce((item) => {
 // // const Unchecked = item.length})
 
-// console.log("it does actually work")
 
 // add amount to list. dosent work
 
@@ -100,7 +93,7 @@ searchbar.onkeyup = async () => {
       .sort((a,b) => {
         return b.checked - a.checked
       })
-    console.log(result)
+    // console.log(result)
   }
   display(result)
 }

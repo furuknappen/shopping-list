@@ -3,10 +3,10 @@ import PocketBase, { LocalAuthStore } from "../lib/pocketbase.es.mjs"
 const pb = new PocketBase("https://db.shopping-list.furuknappen.no", new LocalAuthStore())
 
 async function login(email, password) {
-  console.log("Logging in...")
+  // console.log("Logging in...")
   try {
     const result = await pb.collection("users").authWithPassword(email, password)
-    console.log("Logging in succeded")
+    // console.log("Logging in succeded")
     return {
       id: result.record.id,
       name: result.record.name,
@@ -27,9 +27,7 @@ function getLoggedInUser() {
 }
 
 async function logout() {
-  console.log("Loggin out...")
   await pb.authStore.clear()
-  console.log("Logged out")
 }
 
 async function listItems() {
@@ -130,22 +128,22 @@ async function searchItems(text) {
 }
 
 async function checkItem(id) {
-  console.log(`Checking item with id = "${id}" ...`)
+  // console.log(`Checking item with id = "${id}" ...`)
 
   try {
     await pb.collection("items").update(id, { checked: true })
-    console.log(`Checking item with id = "${id}" succeded`)
+    // console.log(`Checking item with id = "${id}" succeded`)
   } catch (error) {
     console.error(`Checking with id = "${id}" failed with error`, error)
   }
 }
 
 async function uncheckItem(id) {
-  console.log(`Unchecking item with id = "${id}" ...`)
+  // console.log(`Unchecking item with id = "${id}" ...`)
 
   try {
     await pb.collection("items").update(id, { checked: false })
-    console.log(`Unchecking item with id = "${id}" succeded`)
+    // console.log(`Unchecking item with id = "${id}" succeded`)
   } catch (error) {
     console.error(`Unchecking with id = "${id}" failed with error`, error)
   }
@@ -166,14 +164,13 @@ async function updateItem(id, name, amount, category, checked = true) {
 
 async function RefreshLogin(){
   await pb.collection("users").authRefresh();
-  console.log("Refreshed login")
 }
 
 // Refresh the login session on page load
 try {
   setTimeout(RefreshLogin, 5000)
 } catch (error) {
-  console.log("Failed to refresh login")
+  console.warn("Failed to refresh login")
 }
 
 export default {

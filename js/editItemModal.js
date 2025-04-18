@@ -41,7 +41,6 @@ async function saveEditedItem() {
 //  CATEGORIES
 
 const categories = await db.listCategories()
-console.table(categories)
 
 function displayCategories() {
   const fieldset = document.getElementById("categoryListFieldset")

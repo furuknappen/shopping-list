@@ -1,12 +1,9 @@
 import db from "./db.js"
 
-console.log("loading login.js")
-
 window.userLogin = userLogin
 
  function userLogin(event) {
   event.preventDefault()
-  console.log("works")
   const email = document.getElementById("email").value
   const password = document.getElementById("password").value
 
