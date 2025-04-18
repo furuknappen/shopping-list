@@ -83,6 +83,7 @@
   font-size: 0.9em;
   /* biome-ignore lint/a11y/useGenericFontNames: <explanation> */
   font-family: nunito;
+  color: black;
 }
 
 /* CHECKBOX START*/

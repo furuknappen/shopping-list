@@ -14,31 +14,21 @@ async function displayItemList() {
     })
     .join("")
 }
-// fix css so it dosent break
-/* <li class="checklistItem" id='${id}'> 
-      <div data-open-modal onclick="document.querySelector('[data-modal]').showModal()">
-      <span  id="itemName"> 
-      ${name} 
-      </span>  
 
-        <button  class="listItemBtn" id="itemAmount">  
-        x ${amount} 
-        </button>
-       </div>  */
 
 function listItem(id, name, amount, isChecked) {
   const checked = isChecked ? "checked" : ""
-  return `<li data-open-modal onclick="openEditModal('${id}')" class="checklistItem" id='${id}'> 
+  return `<li class="checklistItem" id='${id}'> 
 
-      <span  id="itemName"> 
+      <span onclick="openEditModal('${id}')" id="itemName"> 
       ${name} 
       </span>  
             
-        <button  class="listItemBtn" id="itemAmount">  
+        <button onclick="openEditModal('${id}')" class="listItemBtn" id="itemAmount">  
         x ${amount} 
         </button>
         
-       <input onclick="selectOutput1(id)" class="checkbox" type="checkbox" name="checkbox" id="l_${id}" ${checked}>
+       <input onclick="selectOutputList('${id}')" class="checkbox" type="checkbox" name="checkbox" id="l_${id}" ${checked}>
   </li>`
 }
 
@@ -104,9 +94,13 @@ searchbar.onkeyup = async () => {
   let result = []
   const input = searchbar.value
   if (input.length) {
-    result = items.filter((item) => {
-      return item.name.toLowerCase().includes(input.toLowerCase())
-    })
+    result = items
+      .filter((item) => {
+        return item.name.toLowerCase().includes(input.toLowerCase())
+      })
+      .sort((a,b) => {
+        return b.checked - a.checked
+      })
     console.log(result)
   }
   display(result)
@@ -116,7 +110,7 @@ searchbar.onkeyup = async () => {
 function display(result) {
   const content = result.map((item) => {
     const checked = item.checked ? "checked" : ""
-    return `<li data-open-modal onclick="selectOutput('${item.id}')">  
+    return `<li data-open-modal onclick="selectOutputSearch('${item.id}')">  
     <input  class="checkbox1" type="checkbox" name="checkbox" diasbled id="s_${item.id}" ${checked}> ${item.name}     
   </li>`
   })
@@ -124,37 +118,42 @@ function display(result) {
 }
 
 // makes checkmarks comunicate across
-window.selectOutput = selectOutput
-
-async function selectOutput(id) {
+window.selectOutputSearch = selectOutputSearch
+async function selectOutputSearch(id) {
   const plannerlistCheckbox = document.getElementById(`l_${id}`)
   const searchCheckbox = document.getElementById(`s_${id}`)
   if (searchCheckbox.checked) {
     await db.uncheckItem(id)
-    searchCheckbox.checked = false
     plannerlistCheckbox.checked = false
+    searchCheckbox.checked = false
   } else {
     await db.checkItem(id)
-    searchCheckbox.checked = true
     plannerlistCheckbox.checked = true
+    searchCheckbox.checked = true
   }
 }
 
-window.selectOutput1 = selectOutput1
-// fix this: delete and fix the one above
-async function selectOutput1(id) {
+window.selectOutputList = selectOutputList
+async function selectOutputList(id) {
   const plannerlistCheckbox = document.getElementById(`l_${id}`)
   const searchCheckbox = document.getElementById(`s_${id}`)
   if (plannerlistCheckbox.checked) {
-    await db.uncheckItem(id)
-    searchCheckbox.checked = false
-    plannerlistCheckbox.checked = false
-  } else {
     await db.checkItem(id)
-    searchCheckbox.checked = true
     plannerlistCheckbox.checked = true
+    if (searchCheckbox){
+      searchCheckbox.checked = true
+    }
+  } else {
+    await db.uncheckItem(id)
+    plannerlistCheckbox.checked = false
+    if (searchCheckbox){
+      searchCheckbox.checked = false
+    }
   }
 }
+
+
+
 
 searchbar.addEventListener("enter", addToUnchecked)
 
