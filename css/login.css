@@ -30,9 +30,11 @@ body {
 
 h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 100;
+  font-weight: 400;
   padding-left: 6px;
-  font-size: large;
+  font-size: 1.3em;
+  padding-bottom: 7px
+  
 }
 
 input {
@@ -40,7 +42,14 @@ input {
   margin: 0.5rem;
   border: 2px solid rgb(50, 97, 50);
   border-radius: 5px;
+  font-size:1rem;
 }
+
+input::placeholder {
+  color:rgb(88, 87, 87);
+  font-size:1rem;
+}
+
 
 #submitLogin {
   width: 50%;
@@ -51,8 +60,9 @@ input {
   border-radius: 5px;
   margin-top: 9%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 100;
+  font-weight: 400;
   font-size: large;
+  color: #f1f1f1;
 }
 
 @media (min-width: 1025px) {
