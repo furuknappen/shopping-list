@@ -78,6 +78,10 @@ function listItem(id, name, amount, isChecked) {
 //   amountInput.value = getAll()[editId].amount
 //   rerenderList()
 // }
+
+
+
+
 const searchbar = document.getElementById("searchbar")
 const searchList = document.getElementById("searchList");
 

@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: black;
+  color: #000000;
 }
 
 body {
@@ -20,4 +20,24 @@ body {
 
 }
 
+/* add button */
+#addItemButton {
+  position: fixed;
+  bottom: 3%;
+  right: 3%;
+  background-color: var(--headerColor);
+  padding:3px 3px 0px 3px;
+  border-style: hidden;
+  border-radius: 50%;
+  cursor: pointer
+}
 
+#plusSvg {
+  /* margin: 0.3em; */
+  height: 3.7em;
+}
+
+#addItemButton:hover {
+  background-color: var(--headerDarkerColor);
+
+}

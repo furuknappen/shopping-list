@@ -1,5 +1,7 @@
 import PocketBase, { LocalAuthStore } from "../lib/pocketbase.es.mjs"
 
+const itemTableName = "items_test" // Prod: "items". Test: "items_test"
+
 const pb = new PocketBase("https://db.shopping-list.furuknappen.no", new LocalAuthStore())
 
 async function login(email, password) {
@@ -32,7 +34,7 @@ async function logout() {
 
 async function listItems() {
   try {
-    const result = await pb.collection("items").getFullList({
+    const result = await pb.collection(itemTableName).getFullList({
       fields: "id,name,amount,checked",
       expand: "",
       filter: "",
@@ -47,7 +49,7 @@ async function listItems() {
 }
 async function getItem(id) {
   try {
-    const result = await pb.collection("items").getOne(id)
+    const result = await pb.collection(itemTableName).getOne(id)
 
     // console.log("listItems result:")
     // console.table(result)
@@ -74,7 +76,7 @@ async function listCategories() {
 async function listPlanningItems() {
   try {
     const date = new Date().toISOString().split("T")[0]
-    const result = await pb.collection("items").getList(1, 1000, {
+    const result = await pb.collection(itemTableName).getList(1, 1000, {
       fields: "id,name,amount,checked,expand.category.name,expand.category.color",
       expand: "category",
       filter: "",
@@ -94,7 +96,7 @@ async function listPlanningItems() {
 async function listShoppingItems() {
   try {
     const date = new Date().toISOString().split("T")[0]
-    const result = await pb.collection("items").getList(1, 1000, {
+    const result = await pb.collection(itemTableName).getList(1, 1000, {
       fields: "id,name,amount,checked,expand.category.name,expand.category.color",
       expand: "category",
       filter: `(checked = false || updated > '${date}')`,
@@ -113,7 +115,7 @@ async function listShoppingItems() {
 
 async function searchItems(text) {
   try {
-    const result = await pb.collection("items").getList(1, 1000, {
+    const result = await pb.collection(itemTableName).getList(1, 1000, {
       fields: "id,name,amount,checked",
       expand: "",
       filter: `name~'${text}'`,
@@ -127,11 +129,25 @@ async function searchItems(text) {
   }
 }
 
+async function addItem(name, categoryId, checked = true, amount = 1 ) {
+  try {
+    await pb.collection(itemTableName).create({
+      name,
+      category: categoryId,
+      checked,
+      amount,
+    })
+    // console.log(`Adding item with name = "${name}" succeded`)
+  } catch (error) {
+    console.error(`Adding item with name = "${name}" failed with error`, error)
+  }
+}
+
 async function checkItem(id) {
   // console.log(`Checking item with id = "${id}" ...`)
 
   try {
-    await pb.collection("items").update(id, { checked: true })
+    await pb.collection(itemTableName).update(id, { checked: true })
     // console.log(`Checking item with id = "${id}" succeded`)
   } catch (error) {
     console.error(`Checking with id = "${id}" failed with error`, error)
@@ -142,7 +158,7 @@ async function uncheckItem(id) {
   // console.log(`Unchecking item with id = "${id}" ...`)
 
   try {
-    await pb.collection("items").update(id, { checked: false })
+    await pb.collection(itemTableName).update(id, { checked: false })
     // console.log(`Unchecking item with id = "${id}" succeded`)
   } catch (error) {
     console.error(`Unchecking with id = "${id}" failed with error`, error)
@@ -151,7 +167,7 @@ async function uncheckItem(id) {
 
 async function updateItem(id, name, amount, category, checked = true) {
   try {
-    await pb.collection("items").update(id, {
+    await pb.collection(itemTableName).update(id, {
       name: name,
       checked: checked,
       amount: amount,
@@ -161,6 +177,15 @@ async function updateItem(id, name, amount, category, checked = true) {
     console.error(`Unchecking with id = "${id}" failed with error`, error)
   }
 }
+
+async function deleteItem(id) {
+  try {
+    await pb.collection(itemTableName).delete(id)
+  } catch (error) {
+    console.error(`Deleting item with id = "${id}" failed with error`, error)
+  }
+}
+
 
 async function RefreshLogin(){
   await pb.collection("users").authRefresh();
@@ -186,4 +211,6 @@ export default {
   uncheckItem,
   updateItem,
   getItem,
+  addItem,
+  deleteItem,
 }

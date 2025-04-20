@@ -51,6 +51,10 @@
   </header>
 
   <main>
+    <button id="addItemButton" onclick="openAddModal()">
+      <img id="plusSvg" src="../svg-img/plus.svg" alt="Add Item button"> 
+    </button>
+
     <div id="searchbarParent">
       <input id="searchbar" type="text" placeholder="Search.." autocomplete="off">
       <div id="searchOutput">
@@ -70,24 +74,25 @@
     <!-- id="popUpEdit" -->
 
     <!-- edit page -->
-    <dialog data-modal id="addItemWindow">
+    <dialog data-edit-modal class="itemModalWindow">
       <div>
+        <input type="checkbox" id="checkboxEditModal" hidden>
         <span class="additemwindowText">Edit item</span>
         <input type="text" id="ItemId" value="asd" hidden>
-        <input type="text" id="ItemInputname">
+        <input type="text" id="itemInputnameEdit" class="itemInputname">
         <span class="additemwindowText">Amount</span>
         <div>
-          <button class="amountbtns" onclick="sub1()"><b>-</b></button>
-          <input id="amountInput" value="1">
-          <button class="amountbtns" onclick="add1()">+</button>
+          <button class="amountbtns" onclick="sub('amountInputEdit')"><b>-</b></button>
+          <input class="amountInput" id="amountInputEdit" value="1">
+          <button class="amountbtns" onclick="add('amountInputEdit')">+</button>
         </div>
 
         <span class="additemwindowText">Categories</span>
-        <fieldset id="categoryListFieldset" class="categoryListFieldset">
+        <fieldset id="categoryListEditFieldset" class="categoryListFieldset">
         </fieldset>
 
         <div id="bottomRow">
-          <button id="removeItem" onclick="closeNewItemWindow()">
+          <button class="removeItem" onclick="deleteItem()">
             <img id="hamburgerSvg" src="../svg-img/trash.svg" alt="Delete item button">
           </button>
           <button onclick="closeEditModal()" class="submitPageBtn">Close</button>
@@ -98,29 +103,28 @@
 
 
     <!-- add page -->
-    <dialog data-modal id="addItemWindow">
+    <dialog data-add-modal class="itemModalWindow">
       <div>
+        <input type="checkbox" id="checkbox1">
         <span class="additemwindowText">Add item</span>
-        <input type="text" id="ItemInputname">
+        <input type="text" id="itemInputnameAdd" class="itemInputname">
         <span class="additemwindowText">Amount</span>
         <div>
-          <button class="amountbtns" onclick="sub1()"><b>-</b></button>
-          <input id="amountInput" value="1">
-          <button class="amountbtns" onclick="add1()">+</button>
+          <button class="amountbtns" onclick="sub('amountInputAdd')"><b>-</b></button>
+          <input class="amountInput" id="amountInputAdd" value="1">
+          <button class="amountbtns" onclick="add('amountInputAdd')">+</button>
         </div>
 
         <span class="additemwindowText">Categories</span>
         <!-- <ul > here will the categorylist be
         </ul> -->
 
-        <fieldset id="categoryListFieldset" class="categoryListFieldset">
+        <fieldset id="categoryListAddFieldset" class="categoryListFieldset">
         </fieldset>
 
         <div id="bottomRow">
-          <button id="removeItem" onclick="closeNewItemWindow()">
-            <img id="hamburgerSvg" src="../svg-img/trash.svg" alt="Delete item button">
-          </button>
-          <button data-close-modal class="submitPageBtn">Close</button>
+         
+          <button data-add-modal class="submitPageBtn" onclick="closeAddModal()">Close</button>
           <button class="submitPageBtn" onclick="newItemSubmit()"> Add new item</button>
         </div>
       </div>
