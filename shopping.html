@@ -29,11 +29,14 @@
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/checklistStyle.css">
   <link rel="stylesheet" href="css/submit-editpage.css">
+  <link rel="stylesheet" href="css/shopping.css">
+
 
 
 </head>
 
 <body>
+  <div id="spaceDiv"> There is nothing under here</div>
   <header id="headerDiv">
     <h1 id="headerText"> Shoppingmode </h1>
     <div id="hamburgerBtnDiv">
@@ -49,6 +52,23 @@
   </header>
 
   <main>
+    <div id="shoppingStats"> 
+     
+    </div>
+      <div class="StatDiv">
+        Items in cart: <span id="inCart"></span>
+      </div>
+      <div class="StatDiv">
+        Items to go: <span id="itemsToGo"></span>
+         </div>
+        <div id="motionDiv">
+        <button  onclick="startAnimation()" id="shoppingcartSvgBtn" >
+          <img id="shoppingcartSvg" src="./svg-img/shopping-cart (1).svg" alt="_alternate text_">
+        </button>
+     
+      
+
+    </div>
     <div id="checklistDiv">
       <ul id="uncheckedItemsShoppingmode">
 

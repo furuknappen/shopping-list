@@ -2,8 +2,11 @@ import db from "./db.js"
 
 await displayItemList()
 
+// TODO: Offset this page so that the top item is not behind the header.
+
 async function displayItemList() {
   const items = await db.listShoppingItems()
+  getItemsInCart(items)
 
   document.getElementById("uncheckedItemsShoppingmode").innerHTML = items
     .map((item) => {
@@ -41,4 +44,36 @@ async function checkboxChanged (id) {
     await db.uncheckItem(id)
   }
   await displayItemList()
+}
+
+
+// shoppingStats inCart  itemsToGo
+
+async function getItemsInCart (items) {
+
+const numberChecked = items.filter((item) => {
+  return item.checked 
+}).length
+
+const numberUnChecked = items.filter((item) => {
+  return !item.checked 
+}).length
+console.log(numberUnChecked)
+   console.log(numberChecked)
+document.getElementById("inCart").innerHTML =numberChecked
+document.getElementById("itemsToGo").innerHTML =numberUnChecked 
+}
+
+// shopping cart animation
+window.startAnimation = startAnimation
+function startAnimation() {
+    
+  console.log("animation should start")
+  document.getElementById("shoppingcartSvgBtn").classList.toggle('shoppingcartSvgBtn')
+  setTimeout(shoppingcartSvgBtn, 3500) 
+}
+
+function shoppingcartSvgBtn(){
+console.log("animation should stop")
+  document.getElementById("shoppingcartSvgBtn").classList.toggle('shoppingcartSvgBtn')
 }
