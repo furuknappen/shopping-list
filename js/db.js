@@ -1,6 +1,6 @@
 import PocketBase, { LocalAuthStore } from "../lib/pocketbase.es.mjs"
 
-const itemTableName = "items_test" // Prod: "items". Test: "items_test"
+const itemTableName = "items" // Prod: "items". Test: "items_test"
 
 const pb = new PocketBase("https://db.shopping-list.furuknappen.no", new LocalAuthStore())
 

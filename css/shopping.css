@@ -45,7 +45,7 @@
 
 @keyframes cartMovingStart {
   0%   { left:0px; }
-  20%  { left:-4%;  transform: rotate(0deg); }
+  20%  { left:-2.5%;  transform: rotate(0deg); }
   50%  { left:110%; transform: rotate(-30deg); opacity: 100;  }
   55%  { left:110%; transform: rotate(0deg);  opacity: 0;  }
  56%  { left:-20%; opacity: 0; animation-duration: 3s; }
