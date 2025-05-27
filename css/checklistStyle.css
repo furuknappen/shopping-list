@@ -48,10 +48,10 @@
 
 
 #checklistDiv {
-  
   width: 100%;
   height: auto;
-  background-color: rgb(140, 207, 140);
+  background-color: var(--backgroundColor);
+
   padding: 0.5em;
   position: relative;
   border-radius: 4px;
@@ -66,7 +66,9 @@
   border-bottom: 2px;
   border-bottom-style: solid;
   border-color: var(--dividerColor);
-  font-size: 1.2em;
+  font-size: 1.8em;
+
+
 }
 
 .checklistItem:last-child {
@@ -76,6 +78,7 @@
 #itemName {
   flex: 1;
   padding-left: 2%;
+
 }
 
 #itemAmount {
@@ -84,7 +87,7 @@
   border: none;
   background-color: transparent;
   margin-right: 0.5em;
-  font-size: 0.9em;
+  font-size: 0.8em;
   /* biome-ignore lint/a11y/useGenericFontNames: <explanation> */
   font-family: nunito;
   color: black;
@@ -94,8 +97,8 @@
 .checkbox[type="checkbox"] {
   margin: 2%;
   appearance: none;
-  width: 1.9em;
-  height: 1.9em;
+  width: 1.7em;
+  height: 1.7em;
   border: 0.15em solid var(--borderColor);
   border-radius: 0.2em;
   font: inherit;
@@ -111,8 +114,8 @@
   transform: scale(0);
   transition: 120ms transform ease-in-out;
   transform-origin: bottom left;
-  box-shadow: inset 1em 1em var(--borderColor);
-  padding: 5px 5px 5px 5px;
+  /* box-shadow: inset 1em 1em var(--borderColor); */
+  padding: 6px 6px 6px 6px;
   background-color: var(--borderColor);
   clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
@@ -122,6 +125,36 @@
 }
 
 /* CHECKBOX STOP*/
+
+/* CHECKBOX in search START*/
+.checkbox1[type="checkbox"] {
+  margin-inline: 2%;
+  appearance: none;
+  display: grid;
+  place-content: center;
+  position: relative;
+}
+
+.checkbox1[type="checkbox"]::before {
+  content: "";
+  width: 1em;
+  height: 1em;
+  transform: scale(0);
+  /* transition: 120ms transform ease-in-out; */
+  /* transform-origin: bottom left; */
+  /* box-shadow: inset 1em 1em var(--borderColor); */
+  padding: 5px 5px 5px 5px;
+  background-color: var(--borderColor);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  margin-right: 0.5em
+}
+
+.checkbox1[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+/* CHECKBOX in search STOP*/
+
+
 
 /* iPads (tablets) - Landscape */
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -151,11 +184,8 @@
     border-style: solid;
     border-color: var(--borderColor);
   }
-  #searchbarParent {
-    position: relative;
-    width: 40vw;
-    padding: 0.3em 1em 0.3em 1em;
-  }
+
 }
 
 /* copiert */
+

@@ -13,7 +13,21 @@ async function displayItemList() {
       return listItem(item.id, item.name, item.amount, item.checked)
     })
     .join("")
+
+    displayItemsInCart(items)
 }
+
+  // shoppingStats inCart  itemsToGo
+
+  function displayItemsInCart (items) {
+
+    const numberUnChecked = items.filter((item) => {
+      return !item.checked 
+    }).length
+    document.getElementById("inCart").innerHTML =numberUnChecked 
+    }
+
+
 
 
 function listItem(id, name, amount, isChecked) {
@@ -106,7 +120,7 @@ searchbar.onkeyup = async () => {
 function display(result) {
   const content = result.map((item) => {
     const checked = item.checked ? "checked" : ""
-    return `<li data-open-modal onclick="selectOutputSearch('${item.id}')">  
+    return `<li class="searchListElement" data-open-modal onclick="selectOutputSearch('${item.id}')">  
     <input  class="checkbox1" type="checkbox" name="checkbox" diasbled id="s_${item.id}" ${checked}> ${item.name}     
   </li>`
   })
@@ -139,12 +153,14 @@ async function selectOutputList(id) {
     if (searchCheckbox){
       searchCheckbox.checked = true
     }
+    document.getElementById("inCart").innerHTML-- 
   } else {
     await db.uncheckItem(id)
     plannerlistCheckbox.checked = false
     if (searchCheckbox){
       searchCheckbox.checked = false
     }
+    document.getElementById("inCart").innerHTML++
   }
 }
 

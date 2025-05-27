@@ -4,7 +4,6 @@
 
 #spaceDiv {
   height: 9vh;
-  
   align-content: end;
   text-align: center;
   padding-bottom: 5px
@@ -48,10 +47,9 @@
   20%  { left:-2.5%;  transform: rotate(0deg); }
   50%  { left:110%; transform: rotate(-30deg); opacity: 100;  }
   55%  { left:110%; transform: rotate(0deg);  opacity: 0;  }
- 56%  { left:-20%; opacity: 0; animation-duration: 3s; }
+  56%  { left:-20%; opacity: 0; animation-duration: 3s; }
   57%  { left: -20%; opacity: 100; animation-duration: 3s;}
   96% { left:-1px; opacity: 100; transform: rotate(5deg); }
   98% {left:-1px; opacity: 100;   }
   100% { left:0px; opacity: 100; }
- 
 }

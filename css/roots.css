@@ -10,9 +10,32 @@
   --backgroundColor: rgb(140, 207, 140);
   --backgroundDarkerColor:  rgb(125, 179, 125);
 }
+/* 
+:root {
+  --headerColor: rgb(27, 116, 27);
+  --headerDarkerColor: rgb(19, 99, 19);
+ 
+  --borderColor: rgb(27, 116, 27);
+  --dividerColor: rgb(110, 177, 110);
+  --fontColor: rgb(25, 26, 25);
 
+  --mainBackgroundColor: #a5f3a5;
+  --backgroundColor:#b9fdb9 ;
+  --backgroundDarkerColor:  rgb(157, 218, 157);
+} */
 
+:root {
+  --headerColor: rgb(53, 102, 53);
+  --headerDarkerColor: rgb(41, 94, 41);
+ 
+  --borderColor: rgb(53, 102, 53);
+  --dividerColor: rgb(178, 185, 178);
+  --fontColor: rgb(25, 26, 25);
 
+  --mainBackgroundColor: rgb(221, 248, 211);
+  --backgroundColor:rgb(221, 248, 211);
+  --backgroundDarkerColor: rgb(166, 192, 158);
+}
 /* :root {
   --headercolor:
   --headerTextColor: 

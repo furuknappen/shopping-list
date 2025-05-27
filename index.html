@@ -39,11 +39,10 @@
 <body>
   <header id="headerDiv">
     <h1 id="headerText"> Planningmode </h1>
-    <div id="hamburgerBtnDiv">
-      <button id="hamburgerMenuBtn" onclick="openMenu()">
-        <img id="hamburgerSvg" src="../svg-img/menu-2.svg" alt="_alternate text_"></button>
+    <button id="hamburgerMenuBtn" onclick="openMenu()">
+      <img id="hamburgerSvg" src="../svg-img/menu-2.svg" alt="_alternate text_">
+    </button>
 
-    </div>
     <div id="hamburgerMenu">
       <a href="/">Planner</a>
       <a href="/shopping.html">Shoppingmode</a>
@@ -62,7 +61,10 @@
       <div id="searchOutput">
         <ul id="searchList"></ul></div>
     </div>
-
+    <div class="StatDiv">
+      Items in cart: <span id="inCart"></span>
+    </div>
+  
     <div id="checklistDiv">
       <ul id="uncheckedItemsPlanning">
 
