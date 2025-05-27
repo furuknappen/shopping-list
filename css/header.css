@@ -8,33 +8,32 @@
   position: fixed; 
   z-index: 50;
   top: 0;
+  padding-right: 2%;
 }
 
 #headerText {
   color: #f1f1f1;
-  font-size: 2rem;
-  padding-inline: auto;
-  padding-block: 0.2rem;
+  font-size: 2.1rem;
+  padding-inline: 0.1em;
+  padding-block: 0.1rem;
   flex: 1;
   text-align: center;
   font-weight: 500;
-}
-
-#hamburgerBtnDiv {
-  text-align: end;
-  display: flex;
-  align-items: center;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #hamburgerMenuBtn {
-  /* height: 100%; */
-  width: auto;
-  background-color: transparent;
+  flex: 0 0 auto;
   border: none;
-  /* border-radius: 3%; */
-  padding: 0.6em;
-  margin-top: 1;
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2px;
 }
+
 #hamburgerMenuBtn:hover {
   background-color: var(--headerDarkerColor);
   cursor: pointer;
@@ -44,8 +43,9 @@
 }
 
 #hamburgerSvg {
-  width: 2.2em;
   height: 100%;
+  width: 3.51em;
+  padding: 3px;
 }
 
 #hamburgerSvg:active {
@@ -53,38 +53,36 @@
 }
 
 /* iPads (tablets) - Landscape */
-@media (min-width: 769px) and (max-width: 1024px) {
-
-  #hamburgerSvg {
-    width: 2.4em;
-  }
-}
+/* @media (min-width: 769px) and (max-width: 1024px) {
+} */
 
 /*........ Desktops ............*/
 @media (min-width: 1025px) {
   body{
     padding-top: 4em;
-   
   }
-
-  #hamburgerBtnDiv {
-    margin-right: 3%;
+  
+  #headerText {
+    font-size: 3.4rem;
   }
 
   #hamburgerSvg {
-    width: 2.4em;
+    height: 100%;
+    width: 5.51em;
   }
+
 }
 
 /* hamburger menu */
 #hamburgerMenu {
-  border: 2px solid var(--borderColor);
+  border: 4px solid var(--borderColor);
   position: absolute;
   right: 0;
   top: 100%;
   display: none; /* denne må endres til none når jeg beynner med js*/
   background-color: var(--backgroundColor);
   border-radius: 3px;
+  width:100%;
 }
 
 #hamburgerMenu :hover {
@@ -95,5 +93,31 @@ a {
   text-decoration: none;
   color: var(--fontColor);
   padding: 8px;
-  padding-right: 200px;
+  /* padding-right: %; */
+  font-size: 1.8em;
+  justify-content: left;
+  
 }
+
+/* iPads (tablets) - Landscape */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #hamburgerMenu { 
+    width: 50%;
+  }
+}
+
+@media (min-width: 1025px) {
+  #hamburgerMenu { 
+    width: 25%;
+  }
+  a {
+    text-decoration: none;
+    color: var(--fontColor);
+    padding: 8px;
+    padding-right: 200px;
+    font-size: 1.8em;
+  }
+ 
+}
+
+
