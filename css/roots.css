@@ -43,15 +43,18 @@
   --headerDarkerColor: rgb(41, 94, 41);
  
   --borderColor: rgb(40, 133, 40);
-  --dividerColor: rgb(178, 185, 178);
+  --dividerColor: rgb(139, 141, 139);
   --fontColor: rgb(25, 26, 25);
   --fontColorLight: rgb(237, 250, 236);
 
   --mainBackgroundColor: rgb(250, 255, 247);
   --backgroundColor:rgb(250, 255, 247);
   --backgroundDarkerColor: rgb(166, 192, 158);
-
+  --loginBackgroundcolor: rgb(171, 243, 171);
+  /* --test: linear-gradient(0deg,rgba(39, 114, 39, 1) 0%, rgba(84, 176, 84, 1) 35%, rgba(168, 247, 171, 1) 100%); */
 }
+
+
 /* :root {
   --headercolor:
   --headerTextColor: 

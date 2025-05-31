@@ -17,7 +17,7 @@ body {
 }
 
 #loginDiv {
-  border: 3px solid rgb(50, 97, 50);
+  border: 4px solid var(--borderColor);
   border-radius: 15px;
   padding: 2em;
   display: flex;
@@ -25,57 +25,63 @@ body {
   width: 80%;
   margin-inline: auto;
   margin-top: 30%;
-  background-color:rgb(166, 192, 158);
+  background-color: var(--loginBackgroundcolor);
+  border-style:none;
 }
 
 h1 {
-  font-weight: 400;
+  font-weight: 600;
   padding-left: 6px;
-  font-size: 1.3em;
+  font-size: 1.9em;
   padding-bottom: 7px
 }
 
 input {
-  padding: 10px;
+  padding: 0.5em;
   margin: 0.5rem;
-  border: 2px solid rgb(50, 97, 50);
+  border: 3px solid var(--borderColor);
   border-radius: 5px;
-  font-size:1rem;
+  font-size:1.5rem;
+  border-style:none;
 }
 
 input::placeholder {
   color:rgb(88, 87, 87);
-  font-size:1rem;
+  font-size:1.5rem;
+}
+
+input:focus {
+  outline: none;
 }
 
 
 #submitLogin {
   width: 50%;
-  background-color: rgb(79, 138, 79);
+  background-color: var(--headerColor);
   margin-inline: auto;
-  border: 2px solid rgb(50, 97, 50);
-  padding: 0.5em;
+  border-style:none;
+  padding: 0.7em;
   border-radius: 5px;
   margin-top: 9%;
-  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   font-weight: 400;
-  font-size: large;
+  font-size: 1.5em;
   color: #f1f1f1;
 }
 
+
+
+
+/* Desktops */
 @media (min-width: 1025px) {
-  body {
-    font-size: 20px;
-    margin-top: 9%;
-  }
 
   #loginDiv {
     padding: 3em;
     width: 20%;
-    margin-top: 0;
+    margin-top: 10%;
   }
 
   h1 {
-    padding-left: 4px;
+    padding-left: 2%;
+    font-size: 2em;
   }
 }
