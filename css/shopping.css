@@ -1,27 +1,24 @@
 
 
 
-
-#spaceDiv {
-  height: 9vh;
-  align-content: end;
-  text-align: center;
-  padding-bottom: 5px
-}
-
 #shoppingStats {
-  /* height: 20vh; */
-  display: flex;
   flex-direction: column;
-  padding-bottom: 0;
-  margin-bottom: 0;
- /* margin-bottom: 10px; */
+  background-color: var(--borderColor); 
+  border-radius:15px;
+
+  margin-inline: 3% auto;
+  display: inline-block;
+  margin-top: 50px;
+  padding: 0.7em;
+ 
 }
 
 .StatDiv{
-  padding-left: 1em;
-  padding-top: 7px;
-
+  font-size: 1.3em;
+   color: var(--fontColorLight);
+}
+.stats {
+  color: var(--fontColorLight);
 }
 
 
@@ -32,8 +29,8 @@
  border-style: none;
  display: flex;
  align-items: flex-end;
- 
- 
+ /*change size of svg in html*/
+ margin-bottom: -1px;
 }
 
 .shoppingcartSvgBtn { 
@@ -48,8 +45,22 @@
   50%  { left:110%; transform: rotate(-30deg); opacity: 100;  }
   55%  { left:110%; transform: rotate(0deg);  opacity: 0;  }
   56%  { left:-20%; opacity: 0; animation-duration: 3s; }
-  57%  { left: -20%; opacity: 100; animation-duration: 3s;}
+  57%  { left: -20%; opacity: 0; animation-duration: 3s;}
   96% { left:-1px; opacity: 100; transform: rotate(5deg); }
   98% {left:-1px; opacity: 100;   }
   100% { left:0px; opacity: 100; }
+}
+
+/*........ Desktops ............*/
+@media (min-width: 1025px) {
+
+  .StatDiv{
+    font-size: 1.5em;
+  }
+
+  #shoppingStats {
+    margin-inline: 25% auto;
+    margin-top: 20px;
+    padding: 1em;
+  }
 }

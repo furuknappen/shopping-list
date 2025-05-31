@@ -54,7 +54,7 @@
 
   padding: 0.5em;
   position: relative;
-  border-radius: 4px;
+  border-radius: 9px;
   padding-top: 0em;
   padding-bottom: 0em;
 }
@@ -70,15 +70,20 @@
 
 
 }
-
+.checklistItem:first-child {
+  border-top: 3px rgb(129, 133, 129) solid
+}
 .checklistItem:last-child {
   border-bottom-style: none;
 }
 
 #itemName {
   flex: 1;
-  padding-left: 2%;
-
+  padding-left: 2%; 
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #itemAmount {
@@ -100,7 +105,7 @@
   width: 1.7em;
   height: 1.7em;
   border: 0.15em solid var(--borderColor);
-  border-radius: 0.2em;
+  border-radius: 0.3em;
   font: inherit;
   padding: 1px 1px 1px 0px;
   display: grid;
@@ -172,6 +177,9 @@
     width: 60vw;
     padding: 3.9em 1em 0.3em 1em;
   }
+  .checklistItem:first-child {
+    border-top-style: none;
+  }
 }
 
 /*........ Desktops ............*/
@@ -184,8 +192,12 @@
     border-style: solid;
     border-color: var(--borderColor);
   }
+  
+  .checklistItem:first-child {
+    border-top-style: none;
+  }
 
 }
 
-/* copiert */
+
 

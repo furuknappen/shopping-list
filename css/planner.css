@@ -9,11 +9,11 @@
 
 #searchbar {
   position: relative;
-  background-color: rgb(239, 250, 239);
+  background-color: rgb(255, 255, 255);
   padding: 0.8em;
   width: 100%;
   border: 4px solid var( --borderColor);
-  border-radius: 5px;
+  border-radius: 9px;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 500;
   font-size: 1.5em;
@@ -60,9 +60,7 @@
  padding-left: 2%; 
 }
 
-.checklistItem:first-child {
-  border-top: 3px rgb(129, 133, 129) solid
-}
+
 @media (min-width: 769px) and (max-width: 1024px) {
 
   #searchbarParent {
@@ -99,8 +97,6 @@
     padding-left: 25%; 
    }
 
-  .checklistItem:first-child {
-    border-top-style: none;
-  }
+
 }
 

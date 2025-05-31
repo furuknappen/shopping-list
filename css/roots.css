@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --headerColor: rgb(79, 138, 79);
   --headerDarkerColor: rgb(63, 110, 63);
  
@@ -9,7 +9,7 @@
   --mainBackgroundColor: rgb(207, 252, 207);
   --backgroundColor: rgb(140, 207, 140);
   --backgroundDarkerColor:  rgb(125, 179, 125);
-}
+} */
 /* 
 :root {
   --headerColor: rgb(27, 116, 27);
@@ -24,7 +24,8 @@
   --backgroundDarkerColor:  rgb(157, 218, 157);
 } */
 
-:root {
+/*desktop*/
+/* :root {
   --headerColor: rgb(53, 102, 53);
   --headerDarkerColor: rgb(41, 94, 41);
  
@@ -35,6 +36,21 @@
   --mainBackgroundColor: rgb(221, 248, 211);
   --backgroundColor:rgb(221, 248, 211);
   --backgroundDarkerColor: rgb(166, 192, 158);
+} */
+
+:root {
+  --headerColor: rgb(39, 114, 39);
+  --headerDarkerColor: rgb(41, 94, 41);
+ 
+  --borderColor: rgb(40, 133, 40);
+  --dividerColor: rgb(178, 185, 178);
+  --fontColor: rgb(25, 26, 25);
+  --fontColorLight: rgb(237, 250, 236);
+
+  --mainBackgroundColor: rgb(250, 255, 247);
+  --backgroundColor:rgb(250, 255, 247);
+  --backgroundDarkerColor: rgb(166, 192, 158);
+
 }
 /* :root {
   --headercolor:
