@@ -52,6 +52,7 @@
   --backgroundDarkerColor: rgb(166, 192, 158);
   --loginBackgroundcolor: rgb(171, 243, 171);
   /* --test: linear-gradient(0deg,rgba(39, 114, 39, 1) 0%, rgba(84, 176, 84, 1) 35%, rgba(168, 247, 171, 1) 100%); */
+  --buttons: rgb(89, 182, 89);
 }
 
 

@@ -5,6 +5,7 @@
   width: 100vw;
   padding: 3.3em 1em 0.3em 1em;
   justify-self: center;
+  margin-inline: auto auto;
 }
 
 #searchbar {
@@ -68,6 +69,7 @@
     width: 60vw;
     padding: 3.9em 1em 0.3em 1em;
   }
+
   .StatDiv { 
     font-size: 1.6em;
     padding-left: 15%; 
@@ -76,27 +78,23 @@
    .checklistItem:first-child {
     border-top-style: none;
   }
+  
+  
 }
+
 
 /*........ Desktops ............*/
 @media (min-width: 1025px) {
-
-  #searchbarParent {
-    position: relative;
-    width: 40vw;
-    padding: 0.3em 1em 0.3em 1em;
-  }
-
   #searchbarParent {
     position: relative;
     width: 51%;
     padding: 3.0em 1em 0.3em 1em;
   }
+
   .StatDiv { 
     font-size: 1.6em;
     padding-left: 25%; 
    }
-
 
 }
 

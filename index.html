@@ -109,16 +109,19 @@
     <!-- add page -->
     <dialog data-add-modal class="itemModalWindow">
       <div>
-        <input type="checkbox" id="checkbox1">
+        
         <span class="additemwindowText">Add item</span>
         <input type="text" id="itemInputnameAdd" class="itemInputname">
         <span class="additemwindowText">Amount</span>
-        <div>
-          <button class="amountbtns" onclick="sub('amountInputAdd')"><b>-</b></button>
-          <input class="amountInput" id="amountInputAdd" value="1">
-          <button class="amountbtns" onclick="add('amountInputAdd')">+</button>
-        </div>
-
+        <div class="amountLine"> 
+          <div class="amountDiv">
+            <button class="amountbtns" onclick="sub('amountInputAdd')"><b>-</b></button>
+            <input class="amountInput" id="amountInputAdd" value="1">
+            <button class="amountbtns" onclick="add('amountInputAdd')">+</button>
+          </div> 
+          <div class="buyLaterDiv">
+          <input type="checkbox" class="checkboxAddpage"> <p>Want to wait with buying this item?</p></div>
+        </div> 
         <span class="additemwindowText">Categories</span>
         <!-- <ul > here will the categorylist be
         </ul> -->

@@ -5,19 +5,19 @@
   border-radius: 15px;
   border-style: hidden;
   position: fixed;
-  height: auto;
   padding: 50px;
-  /* display: flex; */
   flex-direction: column;
   padding: 1.2em;
   background-color: #f1f1f1;
-  margin-block: 50% 5%;
+  margin-block:20px auto ;
+  overflow: hidden;
 }
 
 .additemwindowText {
   color: gray;
-  font-size: 0.8em;
+  font-size: 1.1em;
   margin-left: 9px;
+ 
 }
 
 /* INPUT START */
@@ -28,13 +28,13 @@
 .itemInputname {
   background-color: #f1f1f1;
   padding: 10px;
-
+  border-radius: 0;
   border-style: hidden;
-  border-bottom: solid 1px;
+  border-bottom: solid 2px;
   border-color: rgb(131, 133, 131);
   width: 90%;
 
-  font-size: 1.3em;
+  font-size: 1.9em;
   margin: 5px;
   margin-bottom: 20px;
 }
@@ -45,6 +45,17 @@
 /* INPUT STOP */
 
 /* AMOUNT START */
+.amountLine {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amountDiv {
+  display:flex;
+  align-items: center;
+}
 
 .amountEdit {
   background-color: #f1f1f1;
@@ -53,14 +64,15 @@
   border-width: 2px;
   border-radius: 15px;
   border-style: solid;
+  
 }
 
 .amountbtns {
-  background-color: #f1f1f1;
+  background-color: transparent;
   border-style: hidden;
   padding: 10px;
   margin: 0px;
-  font-size: large;
+  font-size: 2em;
   border-radius: 15px;
 }
 
@@ -73,8 +85,56 @@
   border-style: hidden;
   height: 90%;
   box-sizing: border-box;
+  font-size: 1.5em ;
 }
+
+.buyLaterDiv {
+display: flex;
+ justify-content: flex-end;
+
+}
+
+.buyLaterDiv p {
+font-size: 1.1em ;
+text-wrap: balance;
+padding-left: 4%;
+width: 60%
+
+}
+
 /* AMOUNT STOP */
+
+/* CHECKBOX START*/
+.checkboxAddpage[type="checkbox"] {
+  appearance: none;
+  width: 1.9em;
+  height: 1.9em;
+  border: 0.15em solid var(--borderColor);
+  border-radius: 0.3em;
+  font: inherit;
+  padding: 1px 1px 1px 0px;
+  display: grid;
+  place-content: center;
+}
+
+.checkboxAddpage[type="checkbox"]::before {
+  content: "";
+  width: 0.45em;
+  height: 0.45em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  transform-origin: bottom left;
+  /* box-shadow: inset 1em 1em var(--borderColor); */
+  padding: 6px 6px 6px 6px;
+  background-color: var(--borderColor);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.checkboxAddpage[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+/* CHECKBOX STOP*/
 
 /* CATEGORIES START */
 .categoryListFieldset {
@@ -83,6 +143,7 @@
   flex-wrap: wrap;
   border-style: hidden;
   justify-content: center;
+  margin-top: 2%;
 }
 
 input[type="radio"] {
@@ -91,8 +152,8 @@ input[type="radio"] {
 
 .categoryListFieldset label {
   display: inline-block;
-  padding: 0px 5px;
-  font-size: 0.8em;
+  padding: 0px 9px;
+  font-size: 1.1em;
   border: 3px solid transparent;
   border-radius: 15px;
   margin: 3px 3px;
@@ -137,7 +198,7 @@ input[type="radio"] {
   border-radius: 50px;
   border-style: none;
   padding: 0px 0px 3px 0px;
-  margin: 9px;
+  background-color: transparent;
 }
 
 #trashSvg {
@@ -147,12 +208,34 @@ input[type="radio"] {
 .submitPageBtn {
   margin: 9px;
   border-radius: 15px;
-  border-color: var(--borderColor);
-  border-style: solid;
-  background-color: rgb(184, 218, 157);
-  width: 100;
-  height: auto;
-  padding: 0.9em 0.7em;
+  background-color: var(--buttons);
+  /* width: 100; */
+  /* height: auto; */
+  padding: 0.7em 0.7em;
   position: relative;
+  border-style:none;
+  font-size: 1.1em;
 }
 /* BOTTOM ROW STOP */
+
+
+
+/* Desktops */
+@media (min-width: 1025px) {
+  .itemModalWindow {
+    width: 40%;
+    margin-block:auto auto ;
+    border: 3px solid var(--borderColor);
+    padding: 1.9em;
+
+  }
+
+
+  .checkboxAddpage[type="checkbox"] {
+   border: 0.25em solid var(--borderColor);
+   width: 2.5em;
+    height: 2.5em;
+  }
+
+  
+}
