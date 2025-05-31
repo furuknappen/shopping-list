@@ -75,7 +75,7 @@
 }
 .checklistItem:last-child {
   border-bottom-style: none;
-  margin-bottom: 30%;
+  /* margin-bottom: 30%; */
 }
 
 #itemName {

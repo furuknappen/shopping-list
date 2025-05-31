@@ -1,5 +1,8 @@
 
+#statLineShopping {
+  display: flex;
 
+}
 
 #shoppingStats {
   flex-direction: column;
@@ -20,6 +23,29 @@
 .stats {
   color: var(--fontColorLight);
 }
+
+#refreshBtn {
+  background-color: var(--borderColor);
+  align-self:self-end;
+  padding: 1em;
+  border-radius: 50px;
+  border: none;
+  margin-right: 5%;
+  margin-top: 5%;
+}
+
+.refreshBtn { 
+  position: relative;
+  animation: refreshBtnMove 2s forwards;
+  border-style: none;
+}
+
+@keyframes refreshBtnMove {
+  0%   {transform:rotate(0deg) }
+
+  100% { transform:rotate(-180deg)  }
+}
+
 
 
 #shoppingcartSvgBtn {
@@ -62,5 +88,13 @@
     margin-inline: 25% auto;
     margin-top: 20px;
     padding: 1em;
+  }
+  #refreshBtn {
+
+    padding: 1.5em;
+
+
+    margin-right: 25%;
+    
   }
 }

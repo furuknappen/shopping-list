@@ -58,8 +58,8 @@ const numberChecked = items.filter((item) => {
 const numberUnChecked = items.filter((item) => {
   return !item.checked 
 }).length
-console.log(numberUnChecked)
-   console.log(numberChecked)
+// console.log(numberUnChecked)
+//    console.log(numberChecked)
 document.getElementById("inCart").innerHTML =numberChecked
 document.getElementById("itemsToGo").innerHTML =numberUnChecked 
 }
@@ -76,4 +76,20 @@ function startAnimation() {
 function shoppingcartSvgBtn(){
 console.log("animation should stop")
   document.getElementById("shoppingcartSvgBtn").classList.toggle('shoppingcartSvgBtn')
+}
+
+// refresh button
+window.startRefresh = startRefresh
+
+async function startRefresh() {
+  await displayItemList()
+  console.log("animation should start")
+  document.getElementById("refreshSvg")
+  .classList.toggle('refreshBtn')
+  setTimeout(refreshBtn, 1000) 
+}
+
+function refreshBtn(){
+console.log("animation should stop")
+  document.getElementById("refreshSvg").classList.toggle('refreshBtn')
 }

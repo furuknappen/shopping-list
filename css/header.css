@@ -87,7 +87,7 @@
 }
 
 #hamburgerMenu :hover {
-  background: var(--backgroundDarkerColor);
+  background: var(--buttons);
 }
 
 a {
