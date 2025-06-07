@@ -66,13 +66,13 @@ function closeAddModal() {
 window.newItemSubmit = newItemSubmit
 
 async function newItemSubmit() {  
-  const isChecked = document.getElementById("checkbox1").checked
+  const isChecked = document.getElementById("checkbox").checked
   const name = document.getElementById("itemInputnameAdd").value
   const amount = document.getElementById("amountInputAdd").value
   const categoryId = document.querySelector("input[name='categories']:checked").value
   await db.addItem (name, categoryId, isChecked,amount)
   closeAddModal()
-  document.getElementById("checkbox1").checked = false
+  document.getElementById("checkbox").checked = false
   document.getElementById("itemInputnameAdd").value = ""
   document.getElementById("amountInputAdd").value = 1
   document.querySelector("input[name='categories']:checked").value = false
